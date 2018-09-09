@@ -1,0 +1,87 @@
+﻿@model PartionnyAccount.Models.Login.Dir.DirCustomerReg
+
+@{
+    Layout = "~/Views/_Shared/_LayoutLogin.cshtml";
+}
+
+<!-- Form Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+    <h1>Реєстрація</h1>
+    <span>Сервіс для ведення торгового, складського і сервісного обліку</span>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+
+    <!--
+    <div class="toggle">
+        <i class="fa fa-times fa-pencil"></i>
+        <div class="tooltip">Регистрация</div>
+    </div>
+    -->
+
+
+    <div class="toggle1">
+        <!--
+            <i class="fa fa-times fa-pencil"></i>
+            <div class="tooltip">Расширенные</div>
+        -->
+    </div>
+
+
+    <div class="form">
+        <h2>Облікові дані</h2>
+
+        @using (Html.BeginForm("Registration", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            @Html.Hidden("Refer")
+
+            @Html.ValidationMessageFor(model => model.Email)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { type = "text", placeholder = "email@mail.com", title = "Введіть Вашу основну E-Mail адресу" } })
+
+            @Html.ValidationMessageFor(model => model.Login)
+            @Html.EditorFor(model => model.Login, new { htmlAttributes = new { type = "text", placeholder = "MyCompany", title = "Бажано латинський букви, цифри і без пробілів" } })
+
+            @Html.ValidationMessageFor(model => model.DirCountryID)
+            @Html.DropDownListFor(model => model.DirCountryID, new[] {
+                                        new SelectListItem { Text = "Україна", Value = "2" },
+                                        new SelectListItem { Text = "Российская Федерация", Value = "1" },
+                                        new SelectListItem { Text = "USA", Value = "14" },
+                                        new SelectListItem { Text = "Česká republika", Value = "12" },
+                                        new SelectListItem { Text = "Рэспубліка Беларусь", Value = "3" },
+                                        new SelectListItem { Text = "Lietuva", Value = "4" },
+                                        new SelectListItem { Text = "Latvija", Value = "5" },
+                                        new SelectListItem { Text = "Eesti", Value = "6" },
+                                        new SelectListItem { Text = "Republica Moldova", Value = "7" },
+                                        new SelectListItem { Text = "საქართველოს", Value = "8" },
+                                        new SelectListItem { Text = "Հայաստանի Հանրապետություն", Value = "9" },
+                                        new SelectListItem { Text = "Azərbaycan", Value = "10" },
+                                        new SelectListItem { Text = "Другая", Value = "11" }
+                                        }, "Виберіть країну", new { type = "text", title = "Виберіть країну в якій будете вести бізнес" })
+
+            @Html.ValidationMessageFor(model => model.DirLanguageID)
+            @Html.DropDownListFor(model => model.DirLanguageID, new[] {
+                                        new SelectListItem { Text = "Українска", Value = "2" },
+                                        new SelectListItem { Text = "Русский", Value = "1" },
+                                        new SelectListItem { Text = "English", Value = "4" },
+                                        new SelectListItem { Text = "Český", Value = "13" },
+                                        }, new { type = "text", title = "Мова" })
+
+            @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { type = "text", placeholder = "Ваш телефон (мобільний, робочий, домашній, ...)", title = "Введіть Ваш реальний телефонний номер" } })
+
+            @Html.EditorFor(model => model.FIO, new { htmlAttributes = new { type = "text", placeholder = "Прізвище ім'я по батькові", title = "Введіть Ваше реальне Ім'я" } })
+
+
+            <button>Регистрация</button>
+
+        }
+        <br />
+        <span style="color: red">@ViewData["Msg"]</span>
+    </div>
+
+
+    <div class="cta"><a href="account/login/">Вхід</a></div>
+
+
+</div>

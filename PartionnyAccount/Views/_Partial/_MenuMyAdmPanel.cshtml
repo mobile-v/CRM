@@ -1,0 +1,91 @@
+﻿<!-- НАВИГАЦИЯ *** *** *** *** *** *** *** *** *** *** *** *** *** *** -->
+<nav class="navbar">
+
+    <div id="top" class="container">
+        <!-- Логотип и меню -->
+        <div class="navbar-header">
+            <!-- Кнопка меню -->
+            <button type="button" class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div><!-- end navbar-header -->
+        <!-- Пункты меню -->
+        <div class="navbar-collapse">
+
+            <ul class="navNew navbar-right visible-xs">
+                <!--<li class="navNewNo"><a class="nav-link" href="#capabilities" title="Возможности">Возможности</a></li>--> <!--это линк на якорь-->
+                <li><a class="nav-link" href="../MyAdmPanel/" title="Главная">Главная</a></li>
+                <li><a class="nav-link" href="../MyAdmPanel/Remans/" title="Исправление ошибок">Исправление ошибок</a></li>
+                <li><a class="nav-link" href="../MyAdmPanel/Update/" title="Обновление">Обновление</a></li>
+                <li><a class="nav-link" href="../MyAdmPanel/" title="Резерв">Резерв</a></li>
+                <li><a class="nav-link" href="../MyAdmPanel/" title="Резерв">Резерв</a></li>
+            </ul>
+
+        </div><!-- end navbar-collapse -->
+
+    </div><!-- end navbar -->
+
+</nav><!-- end container -->
+
+
+<!-- ССЫЛКИ -->
+<div id="icons" class="container hidden-xs">
+
+    <div class="row">
+
+        <div class="col-sm-2 nav2-box">
+            <a class="nav2-link" href="../MyAdmPanel/" title="Главная">
+                <div class="animated fadeInDownIcons"></div>
+                <p class="nav2-text">Главная</p>
+            </a>
+        </div>
+
+        <div class="col-sm-2 nav2-box">
+            <a class="nav2-link" href="../MyAdmPanel/Remans/" title="Исправление ошибок">
+                <div class="animated fadeInDownIcons"></div>
+                <p class="nav2-text">Исправление ошибок</p>
+            </a>
+        </div>
+
+        <div class="col-sm-2 nav2-box">
+            <a class="nav2-link" href="../MyAdmPanel/Update/" title="Обновление">
+                <div class="animated fadeInDownIcons"></div>
+                <p class="nav2-text">Обновление</p>
+            </a>
+        </div>
+
+        <div class="col-sm-2 nav2-box">
+            <a class="nav2-link" href="../MyAdmPanel/" title="Резерв">
+                <div class="animated fadeInDownIcons"></div>
+                <p class="nav2-text">Резерв</p>
+            </a>
+        </div>
+
+        <div class="col-sm-2 nav2-box">
+            <a class="nav2-link" href="../MyAdmPanel/" title="Резерв">
+                <div class="animated fadeInDownIcons"></div>
+                <p class="nav2-text">Резерв</p>
+            </a>
+        </div>
+
+        <div class="col-sm-2 nav2-box">
+            <a class="nav2-link" href="../MyAdmPanel/" title="Резерв">
+                <div class="animated fadeInDownIcons"></div>
+                <p class="nav2-text">Резерв</p>
+            </a>
+        </div>
+
+    </div><!-- end row -->
+</div><!-- end container -->
+
+
+
+<div class="container menu-header-mini">
+    @if (ViewData["menu_header_mini"] != null)
+    { 
+        @(new HtmlString((string)ViewData["menu_header_mini"]));
+    }
+</div><!-- end container -->

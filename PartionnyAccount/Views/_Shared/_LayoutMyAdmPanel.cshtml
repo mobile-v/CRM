@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="~/" />
+    <title>Панель Администрирования</title>
+    <!-- Шрифты -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400&subset=latin,cyrillic" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,500&subset=latin,cyrillic" rel="stylesheet">
+    <!-- Иконки для сайта и устройств -->
+    <link rel="shortcut icon" type="image/png" href="~/Scripts/login/img/logo/favicon.ico">
+    <link rel="apple-touch-icon" href="~/Scripts/login/img/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Scripts/login/img/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Scripts/login/img/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Scripts/login/img/touch-icon-ipad-retina.png">
+    <!-- Стили -->
+    <link rel="stylesheet" href="~/Scripts/login/css/MyAdmPanel/styles_table.css">
+    <link rel="stylesheet" href="~/Scripts/login/css/MyAdmPanel/styles_basic.css">
+    <link rel="stylesheet" href="~/Scripts/login/css/MyAdmPanel/animate_custom.css">
+    <link rel="stylesheet" href="~/Scripts/login/css/MyAdmPanel/gallery_blue.css">
+</head>
+<body>
+
+    <noscript>
+        &lt;main class="warning"&gt;
+        &lt;p&gt;Извините, для полноценной работы сайта требуется JavaScript :(&lt;/p&gt;
+        &lt;/main&gt;
+    </noscript>
+
+    <!--[if lt IE 9]>
+        <div class="danger">
+            <p>Извините, для корректного отображения сайта требуется Internet Explorer 9 и выше или любой другой современный браузер :(</p>
+        </div>
+    <![endif]-->
+    <!-- Линк "наверх" -->
+
+
+
+    <!-- Верхнее меню -->
+    @Html.Partial("~/Views/_Partial/_MenuMyAdmPanel.cshtml")
+    <!-- *** *** *** *** *** *** *** *** *** *** *** *** *** -->
+
+
+    <!-- *** *** *** *** *** *** *** *** *** *** *** *** *** -->
+    @RenderBody()
+    <!-- *** *** *** *** *** *** *** *** *** *** *** *** *** -->
+
+
+
+    <!-- Скрипты -->
+    <script src="~/Scripts/login/js/MyAdmPanel/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/login/js/MyAdmPanel/wow.min.js"></script>
+    <script src="~/Scripts/login/js/MyAdmPanel/carousel.min.js"></script>
+    <script src="~/Scripts/login/js/MyAdmPanel/blueimp-gallery.min.js"></script>
+    <script src="~/Scripts/login/js/MyAdmPanel/scripts.js"></script>
+
+
+    <!-- Анимация -->
+    <script>
+        wow = new WOW({ offset: 150, mobile: false });
+        wow.init();
+    </script>
+
+    <!-- Переносы -->
+    <script>
+        $(function () {
+            $('.hyp').hyphenate();
+        });
+    </script>
+
+
+</body>
+</html>

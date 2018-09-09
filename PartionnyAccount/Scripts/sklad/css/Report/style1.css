@@ -1,0 +1,17 @@
+   table { 
+    width: 100%; /* Ўирина таблицы */
+    border: 1px solid black; /* –амка вокруг таблицы */
+    border-collapse: collapse; /* ќтображать только одинарные линии */
+   }
+   .table_header { 
+    text-align: left; /* ¬ыравнивание по левому краю */
+    background: #ccc; /* ÷вет фона €чеек */
+    padding: 5px; /* ѕол€ вокруг содержимого €чеек */
+    border: 1px solid black; /* √раница вокруг €чеек */
+    font-size: 12px;
+   }
+   td { 
+    padding: 5px; /* ѕол€ вокруг содержимого €чеек */
+    border: 1px solid black; /* √раница вокруг €чеек */
+    font-size: 12px;
+   }

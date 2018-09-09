@@ -1,0 +1,931 @@
+﻿.SettingButton {
+    background-image: url(../Images/settings32.png); /*!important;*/
+    background-repeat:no-repeat;
+    background-position:right left;
+}
+.DocumentsButton {
+    background-image: url(../Images/documents32.png); /*!important;*/
+}
+.AboutButton {
+    background-image: url(../Images/About32.png); /*!important;*/
+}
+.HelpButton16 {
+    width:20px!important; 
+    height:20px!important;
+    background-image: url('../Images/help16.png')!important;
+    display: block!important;
+    margin: 0 auto!important;
+}
+.AboutExit {
+    background-image: url(../Images/Exit32.png); /*!important;*/
+}
+
+
+
+.MainPanel .x-tab-bar-strip {
+    top: 30px !important; /* Default value is 20, we add 20 = 40 */
+}
+.MainPanel .x-tab-bar .x-tab-bar-body {
+    height: 33px !important; /* Default value is 23, we add 20 = 43 */
+    border: 0 !important; /* Overides the border that appears on resizing the grid */
+}
+.MainPanel .x-tab-bar .x-tab-bar-body .x-box-inner {
+    height: 31px !important; /* Default value is 21, we add 20 = 41 */
+}
+.MainPanel .x-tab-bar .x-tab-bar-body .x-box-inner .x-tab {
+    height: 31px !important; /* Default value is 21, we add 20 = 41 */
+}
+.MainPanel .x-tab-bar .x-tab-bar-body .x-box-inner .x-tab button {
+    height: 33px !important; 
+    line-height: 33px !important;
+}
+.MainPanel .x-tab-center{
+      margin-top: -5px; 
+}
+.MainPanelHome{
+    background-image: url(../Images/home.png) !important;
+    background-repeat: no-repeat;
+    margin-top: +0px;
+}
+.MainPanelConst{
+    background-image: url(../Images/constants.png) !important;
+    background-repeat: no-repeat;
+    margin-top: +0px;
+}
+
+.MainPanelDir{
+    background-image: url(../Images/directory.png) !important;
+    background-repeat: no-repeat;
+    margin-top: +0px;
+}
+.MainPanelJournal{
+    background-image: url(../Images/journal.png) !important;
+    background-repeat: no-repeat;
+    margin-top: +0px;
+}
+.MainPanelOrder{
+    background-image: url(../Images/orders.png) !important;
+    background-repeat: no-repeat;
+    margin-top: +0px;
+}
+.MainPanelCashOffice{
+    background-image: url(../Images/money_dollar.png) !important;
+    background-repeat: no-repeat;
+    margin-top: +0px;
+}
+.MainPanelReport{
+    background-image: url(../Images/chart.png) !important;
+    background-repeat: no-repeat;
+    margin-top: +0px;
+}
+
+
+
+
+/* Справочник */
+.price-Dir .x-change-cell {
+    /*color: Green;*/
+}
+.price-Dir .x-change-cell2 {
+    background:       url(../Images/directory.png) right no-repeat !important;
+}
+
+
+/* Удален(а) */
+.price-del .x-change-cell {
+    background-color: #94240d;
+}
+/* Удален(а) */
+.price-del .x-change-cell-posr {
+    background-color: #f1755b;
+}
+.price-del .x-change-cell2 {
+    background:       url(../Images/delete.png) right no-repeat !important;
+}
+
+
+/* Не проведена */
+.price-held_no_paid .x-change-cell {
+    color: Green;
+}
+.price-held_no_paid .x-change-cell2 {
+    background:       url(../Images/doc_held_no.png) right no-repeat !important;
+}
+
+
+.price-held_no_unpaid .x-change-cell {
+    color: #D2691E;
+}
+.price-held_no_unpaid .x-change-cell2 {
+    background:       url(../Images/doc_held_no.png) right no-repeat !important;
+}
+
+
+.price-held_no_partly_paid .x-change-cell {
+    color: Blue;
+}
+.price-held_no_partly_paid .x-change-cell2 {
+    background:       url(../Images/doc_held_no.png) right no-repeat !important;
+}
+
+
+.price-held_no_overpaid .x-change-cell {
+    color: #8A2BE2;
+}
+.price-held_no_overpaid .x-change-cell2 {
+    background:       url(../Images/doc_held_no.png) right no-repeat !important;
+}
+
+
+
+/* 2 */
+/* Оплачена */
+.price-held_paid .x-change-cell {
+    color: Green;
+    background-color: #e6f9e6;
+}
+.price-held_paid .x-change-cell2 {
+    background:       url(../Images/doc_held.png) right no-repeat !important;
+}
+
+/* Не оплачена */
+.price-held_unpaid .x-change-cell {
+    color: Red;
+    background-color: #e6f9e6;
+}
+.price-held_unpaid .x-change-cell2 {
+    background:       url(../Images/doc_held.png) right no-repeat !important;
+}
+
+/* Частично оплачена */
+.price-held_partly_paid .x-change-cell {
+    color: Blue;
+    background-color: #e6f9e6;
+}
+.price-held_partly_paid .x-change-cell2 {
+    background:       url(../Images/doc_held.png) right no-repeat !important;
+}
+
+/* Переплачена */
+.price-held_overpaid .x-change-cell {
+    color: #8A2BE2;
+    background-color: #e6f9e6;
+}
+.price-held_overpaid .x-change-cell2 {
+    background:       url(../Images/doc_held.png) right no-repeat !important;
+}
+
+
+
+/* 3 */
+/* Оплачена */
+.price-held_paid .x-change-cell101 {
+    color: Green;
+    background-color: #e6f9e6;
+}
+
+.prisutstvuet .x-change-cell102 {
+    background: url(../Images/add.png) right no-repeat !important;
+}
+
+.spis-s-zp .x-change-cell102 {
+    background: url(../Images/cancel.png) right no-repeat !important;
+}
+
+.otsutstvuet .x-change-cell102 {
+    background: url(../Images/disabled.png) right no-repeat !important;
+}
+
+.razbor .x-change-cell102 {
+    background: url(../Images/activation.png) right no-repeat !important;
+}
+
+.prisutstvuetEmpl1 .x-change-cell102 {
+    background: url(../Images/add.png) right no-repeat !important;
+}
+.spis-s-zpEmpl1 .x-change-cell102 {
+    background: url(../Images/cancel.png) right no-repeat !important;
+}
+.razborEmpl1 .x-change-cell102 {
+    background: url(../Images/activation.png) right no-repeat !important;
+}
+
+
+.prisutstvuetEmpl2 .x-change-cell103 {
+    background: url(../Images/add.png) right no-repeat !important;
+}
+
+.spis-s-zpEmpl2 .x-change-cell103 {
+    background: url(../Images/cancel.png) right no-repeat !important;
+}
+
+.razborEmpl2 .x-change-cell103 {
+    background: url(../Images/activation.png) right no-repeat !important;
+}
+
+
+
+label.row-color-yellow
+{
+   color: #FFA500;
+}
+label.price-reserv_partly_paid
+{
+   color: Blue;
+}
+label.price-reserv_paid
+{
+   color: Green;
+}
+label.price-reserv_unpaid
+{
+   color: Red;
+}
+.x-label .myTextClass {
+    color: red;
+}​
+
+/* Резервирована */
+.row-color-yellow .x-change-cell {
+    color: #FFA500;
+}
+
+.price-reserv_paid .x-change-cell {
+    color: Green;
+}
+.price-reserv_paid .x-change-cell2 {
+    background:       url(../Images/doc_reserv.png) right no-repeat !important;
+}
+
+.price-reserv_unpaid .x-change-cell {
+    color: Red;
+}
+.price-reserv_unpaid .x-change-cell2 {
+    background:       url(../Images/doc_reserv.png) right no-repeat !important;
+}
+
+.price-reserv_partly_paid .x-change-cell {
+    color: Blue;
+}
+.price-reserv_partly_paid .x-change-cell2 {
+    background:       url(../Images/doc_reserv.png) right no-repeat !important;
+}
+
+.price-reserv_overpaid .x-change-cell {
+    color: #8A2BE2;
+}
+.price-reserv_overpaid .x-change-cell2 {
+    background:       url(../Images/doc_reserv.png) right no-repeat !important;
+}
+
+
+
+/* *** *** *** Языки *** *** *** */
+.lang_ru .x-change-cell2 { background: url(../Images/Flag/ru.png) right no-repeat !important; }
+.lang_ua .x-change-cell2 { background: url(../Images/Flag/ua.png) right no-repeat !important; }
+.lang_by .x-change-cell2 { background: url(../Images/Flag/by.png) right no-repeat !important; }
+.lang_us .x-change-cell2 { background: url(../Images/Flag/us.png) right no-repeat !important; }
+.lang_az .x-change-cell2 { background: url(../Images/Flag/az.png) right no-repeat !important; }
+.lang_lt .x-change-cell2 { background: url(../Images/Flag/lt.png) right no-repeat !important; }
+.lang_lv .x-change-cell2 { background: url(../Images/Flag/lv.png) right no-repeat !important; }
+.lang_ee .x-change-cell2 { background: url(../Images/Flag/ee.png) right no-repeat !important; }
+.lang_hu .x-change-cell2 { background: url(../Images/Flag/hu.png) right no-repeat !important; }
+.lang_pl .x-change-cell2 { background: url(../Images/Flag/pl.png) right no-repeat !important; }
+.lang_sk .x-change-cell2 { background: url(../Images/Flag/sk.png) right no-repeat !important; }
+.lang_si .x-change-cell2 { background: url(../Images/Flag/si.png) right no-repeat !important; }
+.lang_cz .x-change-cell2 { background: url(../Images/Flag/cz.png) right no-repeat !important; }
+.lang_de .x-change-cell2 { background: url(../Images/Flag/de.png) right no-repeat !important; }
+.lang_fr .x-change-cell2 { background: url(../Images/Flag/fr.png) right no-repeat !important; }
+.lang_ro .x-change-cell2 { background: url(../Images/Flag/ro.png) right no-repeat !important; }
+
+
+
+label.myBold
+{
+   font-size: 11pt;
+}
+
+
+.button-image-reload {
+    background-image: url(../images/refresh16.png) !important;
+}
+
+.button-image-edit {
+    background-image: url(../images/table_edit.png) !important;
+}
+
+.button-image-delete {
+    background-image: url(../images/table_delete.png) !important;
+}
+
+.button-image-user {
+    background-image: url(../images/users.png) !important;
+}
+
+.button-image-up {
+    background-image: url(../images/up16.png) !important;
+}
+
+.button-image-add {
+    background-image: url(../images/add.png) !important;
+    height: 5px;
+}
+
+.button-image-podpis {
+    background-image: url(../images/podpis.png) !important;
+}
+
+
+
+
+/* textfield font-size */
+.textsmall
+{
+    font-size: 12px;
+}
+.textmedium
+{
+    font-size: 16px;
+}
+.textbigger
+{
+    font-size: 22px;
+}
+
+
+/* Central Panel image square */
+.panelBackground {
+    background: url(../../../Scripts/sklad/images/square.gif) no-repeat center;
+    background-image: url(../images/square.gif) !important;
+}
+
+#panelBackground {
+    background-image: url(../../../Scripts/sklad/images/square.gif);
+}
+
+
+
+.treelist-with-nav .panel-body {
+    background-color: #32404e;
+}
+
+.treelist-with-nav #panel-body {
+    background-color: #32404e;
+}
+
+
+
+label.myBoldColor {
+    font-size: 11pt;
+    font-weight: bold;
+    color: green;
+}
+
+
+
+/*
+    Статусы *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+*/
+/* 1 */
+.status-1 .x-change-cell {
+    color: black;
+}
+.status-1 .x-change-cell2 {
+    background-color: black;
+    background-image: url(../Images/Status/input24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: black;
+    text-align: center;
+}
+/* 2 */
+/*.status-2 .x-change-cell {
+    background-color: blue; 
+    color: white;
+}*/
+.status-2 .x-change-cell2 {
+    /* background-color: blue; */
+    background-image: url(../Images/Status/question24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: white;
+    text-align: center;
+}
+/* 3 */
+/*.status-3 .x-change-cell {
+    background-color: yellow;
+}*/
+.status-3 .x-change-cell2 {
+    background-color: yellow;
+    background-image: url(../Images/Status/onagreeing24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: yellow;
+    text-align: center;
+}
+/* 4 */
+/*.status-4 .x-change-cell {
+    background-color: yellow;
+}*/
+.status-4 .x-change-cell2 {
+    background-color: yellow;
+    background-image: url(../Images/Status/OK.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: yellow;
+    text-align: center;
+}
+/* 5 */
+/*.status-5 .x-change-cell {
+    background-color: yellow;
+}*/
+.status-5 .x-change-cell2 {
+    background-color: #8A2BE2;
+    background-image: url(../Images/Status/waiting24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: #8A2BE2;
+    text-align: center;
+}
+/* 6 */
+/*.status-6 .x-change-cell {
+    background-color: yellow;
+}*/
+.status-6 .x-change-cell2 {
+    background-color: #808080;
+    background-image: url(../Images/Status/remote_sc24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: #808080;
+    text-align: center;
+}
+/* 7 */
+/*.status-7 .x-change-cell {
+    background-color: green;
+}*/
+.status-7 .x-change-cell2 {
+    background-color: #90EE90;
+    background-image: url(../Images/Status/renovated24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: #90EE90;
+    text-align: center;
+}
+
+.status-701 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/renovated24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: green;
+    text-align: center;
+}
+
+/* 8 */
+/*.status-8 .x-change-cell {
+    background-color: red;
+}*/
+.status-8 .x-change-cell2 {
+    background-color: red;
+    background:       url(../Images/Status/renouncement24.png) center no-repeat !important;
+    
+    color: white;
+    text-align: center;
+}
+
+.status-801 .x-change-cell2 {
+    background-color: green;
+    background:       url(../Images/Status/renouncement24.png) center no-repeat !important;
+    
+    color: white;
+    text-align: center;
+}
+
+/* 9 (Выдан) */
+/*.status-9 .x-change-cell {
+    background-color: white;
+}*/
+.status-9 .x-change-cell2 {
+    background-color: white;
+    background-image: url(../Images/Status/exit24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: white;
+    text-align: center;
+}
+
+.status-901 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/exit24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: green;
+    text-align: center;
+}
+
+/* 10 (Продан) */
+/*.status-10 .x-change-cell {
+    background-color: white;
+}*/
+.status-10 .x-change-cell2 {
+    background-color: white;
+    background-image: url(../Images/Status/sale.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: white;
+    text-align: center;
+}
+
+.status-1001 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/sale.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: green;
+    text-align: center;
+}
+
+/* 11 (Продан) */
+/*.status-11 .x-change-cell {
+    background-color: white;
+}*/
+.status-11 .x-change-cell2 {
+    background-color: white;
+    background-image: url(../Images/Status/11.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: white;
+    text-align: center;
+}
+
+.status-1101 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/11.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: green;
+    text-align: center;
+}
+
+/* 12 (Продан) */
+/*.status-12 .x-change-cell {
+    background-color: white;
+}*/
+.status-12 .x-change-cell2 {
+    background-color: white;
+    background-image: url(../Images/Status/12.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: white;
+    text-align: center;
+}
+
+.status-1201 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/12.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: green;
+    text-align: center;
+}
+
+/* 13 (Продан) */
+/*.status-13 .x-change-cell {
+    background-color: white;
+}*/
+.status-13 .x-change-cell2 {
+    background-color: white;
+    background-image: url(../Images/Status/13.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: white;
+    text-align: center;
+}
+
+.status-1301 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/13.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: green;
+    text-align: center;
+}
+
+/* 14 (Продан) */
+/*.status-14 .x-change-cell {
+    background-color: white;
+}*/
+.status-14 .x-change-cell2 {
+    background-color: white;
+    background-image: url(../Images/Status/14.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: white;
+    text-align: center;
+}
+
+.status-1401 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/14.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: green;
+    text-align: center;
+}
+
+
+.status-15 .x-change-cell2 {
+    background-color: white;
+    background-image: url(../Images/Status/15.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: white;
+    text-align: center;
+}
+
+.status-1501 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/15.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: green;
+    text-align: center;
+}
+
+
+/* 
+    Просрочен *** *** ***
+*/
+
+/* 1 */
+.status-DateDone-1 .x-change-cell {
+    background-color: red;
+}
+.status-DateDone-1 .x-change-cell2 {
+    background-color: red;
+    background-image: url(../Images/Status/input24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: red;
+    text-align: center;
+}
+
+.status-DateDone-101 .x-change-cell {
+    background-color: green;
+}
+.status-DateDone-101 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/input24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    color: green;
+    text-align: center;
+}
+
+
+/* 2 */
+.status-DateDone-2 .x-change-cell {
+    background-color: red;
+}
+.status-DateDone-2 .x-change-cell2 {
+    background-color: white;
+    background-image: url(../Images/Status/question24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: white;
+    text-align: center;
+}
+
+.status-DateDone-201 .x-change-cell {
+    background-color: green;
+}
+.status-DateDone-201 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/question24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: green;
+    text-align: center;
+}
+
+
+/* 3 */
+.status-DateDone-3 .x-change-cell {
+    background-color: red;
+}
+.status-DateDone-3 .x-change-cell2 {
+    background-color: yellow;
+    background-image: url(../Images/Status/onagreeing24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: yellow;
+    text-align: center;
+}
+
+.status-DateDone-301 .x-change-cell {
+    background-color: green;
+}
+.status-DateDone-301 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/onagreeing24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: green;
+    text-align: center;
+}
+
+
+/* 4 */
+.status-DateDone-4 .x-change-cell {
+    background-color: red;
+}
+.status-DateDone-4 .x-change-cell2 {
+    background-color: yellow;
+    background-image: url(../Images/Status/ok.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: yellow;
+    text-align: center;
+}
+
+.status-DateDone-401 .x-change-cell {
+    background-color: green;
+}
+.status-DateDone-401 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/ok.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: green;
+    text-align: center;
+}
+
+
+/* 5 */
+.status-DateDone-5 .x-change-cell {
+    background-color: red;
+}
+.status-DateDone-5 .x-change-cell2 {
+    background-color: #8A2BE2;
+    background-image: url(../Images/Status/waiting24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: #8A2BE2;
+    text-align: center;
+}
+
+.status-DateDone-501 .x-change-cell {
+    background-color: green;
+}
+.status-DateDone-501 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/waiting24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: green;
+    text-align: center;
+}
+
+
+/* 6 */
+.status-DateDone-6 .x-change-cell {
+    background-color: red;
+}
+.status-DateDone-6 .x-change-cell2 {
+    background-color: #808080;
+    background-image: url(../Images/Status/remote_sc24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: #808080;
+    text-align: center;
+}
+
+.status-DateDone-601 .x-change-cell {
+    background-color: green;
+}
+.status-DateDone-601 .x-change-cell2 {
+    background-color: green;
+    background-image: url(../Images/Status/remote_sc24.png) !important;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+    color: green;
+    text-align: center;
+}
+
+
+/* 
+    Гарантийный *** *** ***
+*/
+/* 1 */
+.status-FromGuarantee .x-change-cell {
+    background-color: #CD853F;
+}
+.status-FromGuarantee .x-change-cell2 {
+    background-color: #CD853F;
+    background:       url(../Images/Status/question24.png) center no-repeat !important;
+        
+    color: #CD853F;
+    text-align: center;
+}
+
+
+
+/* 
+    Выполненая работа: результат диагностики (согласовано и не сограсовано) *** *** ***
+*/
+.status-3 .x-change-cell-12 {
+    background-color: yellow;
+}
+.status-4 .x-change-cell-12 {
+    background-color: #40E0D0;
+}
+
+
+
+
+/*
+    Лгистика
+*/
+/* Шаг №2 */
+.movements-2 .x-change-cell-3 {
+    background-color: #66FF66; 
+    font-weight: bold;
+}
+.movements-2 .x-change-cell-4 {
+    color: black;
+}
+.movements-2 .x-change-cell-5 {
+    color: black;
+}
+/* Шаг №3 */
+.movements-3 .x-change-cell-3 {
+    background-color: #66FF66; 
+    font-weight: bold;
+}
+.movements-3 .x-change-cell-4 {
+    background-color: #00CC00; 
+    font-weight: bold;
+}
+.movements-3 .x-change-cell-5 {
+    color: black;
+}
+/* Шаг №4 */
+.movements-4 .x-change-cell-3 {
+    background-color: #66FF66; 
+    font-weight: bold;
+}
+.movements-4 .x-change-cell-4 {
+    background-color: #00CC00; 
+    font-weight: bold;
+}
+.movements-4 .x-change-cell-5 {
+    background-color: #009900; 
+    font-weight: bold;
+}
+
+
+
+
+
+/*
+    LABEL
+*/
+label.myBold
+{
+    font-size: 11pt;
+    color: red;
+}
+
+
+
+/*Жёлтый*/
+.yellow .x-change-cell {
+    color: black;
+    background-color: yellow;
+}
+
+.yellow .x-change-cell2 {
+    background: url(../Images/doc_held.png) right no-repeat !important;
+}

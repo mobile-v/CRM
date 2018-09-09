@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Сервисный центр: сервисный, торговый и складской учет оналйн</title>
+    <base href="/">
+    <!--Загрузка данных-->
+    <link href="~/Scripts/sklad/css/loader.css" rel="stylesheet" />
+    <!--Изменения в дизайне фреймворка-->
+    <link href="~/Scripts/sklad/css/change.css" rel="stylesheet" />
+    <!-- <link href='~/Scripts/sklad/jsDesktop6/build/examples/admin-dashboard/classic/resources/Admin-all.css' rel="stylesheet" /> -->
+
+    
+    
+    <script type="text/javascript">
+        //Variable for Interface
+        //1 - Windows, 2 - Tabs, 3 - Panels
+        var InterfaceSystem = 1;
+        var InterfaceSystemObjName = "Ext.Window";
+        //Variable for Theme
+        var DefaultButtonUI = "default-toolbar";
+    </script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="~/Scripts/sklad/jsDesktop6/build/ext-all.js"></script>
+
+    <!-- Theme -->
+    <link rel="stylesheet" type="text/css" href="~/Scripts/sklad/jsDesktop6/build/classic/theme-neptune/resources/theme-neptune-all.css">
+    <script type="text/javascript" src="~/Scripts/sklad/jsDesktop6/build/classic/theme-neptune/theme-neptune.js"></script>
+    <script type="text/javascript"> DefaultButtonUI = "default"; </script>
+
+
+    <!-- Interface -->
+    <script type="text/javascript"> InterfaceSystem = 3; InterfaceSystemObjName = "Ext.panel.Panel"; </script>
+
+
+    <!-- Language -->
+    @if (ViewData["CookieL"].ToString() == "2")
+    {
+        <script src="~/Content/other/Language/LanguageUa.js"></script>
+    }
+    else if (ViewData["CookieL"].ToString() == "4")
+    {
+        <script src="~/Content/other/Language/LanguageUs.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/other/Language/LanguageRu.js"></script>
+    }
+
+
+    <!-- Function -->
+    <script src="~/Content/other/Function/Function.js"></script>
+
+
+    @RenderBody()
+
+
+</head>
+<body>
+
+    <div id="loading-mask"></div>
+    <div id="loading">
+        <div class="loading-indicator">
+            "Учет в Торговле и Сервисном центре" загружается ...
+        </div>
+    </div>
+
+</body>
+</html>

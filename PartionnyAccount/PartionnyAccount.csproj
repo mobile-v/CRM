@@ -1,0 +1,1874 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{266B59D0-4071-4DD1-AA35-E222503C2A42}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PartionnyAccount</RootNamespace>
+    <AssemblyName>PartionnyAccount</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\Win\Zip\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.2.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.1\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.109.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Tracing, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Tracing.5.2.3\lib\net45\System.Web.Http.Tracing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UchetOblakoBar">
+      <HintPath>..\..\..\Win\Zip\UchetOblakoBar.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net461\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net461\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Classes\Account\AccessRight.cs" />
+    <Compile Include="Classes\Account\EncodeDecode.cs" />
+    <Compile Include="Classes\Account\Login.cs" />
+    <Compile Include="Classes\Account\PassRemind.cs" />
+    <Compile Include="Classes\Account\Payment.cs" />
+    <Compile Include="Classes\Account\RegConf.cs" />
+    <Compile Include="Classes\Crypto\AES.cs" />
+    <Compile Include="Classes\Function\DirBarCodeImageNew.cs" />
+    <Compile Include="Classes\Function\DirQrCodeImage.cs" />
+    <Compile Include="Classes\Function\Exceptions\ExceptionEntry.cs" />
+    <Compile Include="Classes\Function\Function.cs" />
+    <Compile Include="Classes\Function\FunctionMSSQL\FunMailSend.cs" />
+    <Compile Include="Classes\Function\FunctionMSSQL\Jurn\JurnDispError.cs" />
+    <Compile Include="Classes\Function\FunctionMSSQL\Jurn\JurnDispLogining.cs" />
+    <Compile Include="Classes\Function\FunctionMSSQL\RandomSymbol.cs" />
+    <Compile Include="Classes\Function\FunctionSQLite\CharindexToLike.cs" />
+    <Compile Include="Classes\Function\FunctionSQLite\LimitInSql.cs" />
+    <Compile Include="Classes\Function\FunctionSQLite\LowerUpper.cs" />
+    <Compile Include="Classes\Function\FunctionSQLite\SQLiteDate.cs" />
+    <Compile Include="Classes\Function\GenGenerate.cs" />
+    <Compile Include="Classes\Function\RandomSymbol.cs" />
+    <Compile Include="Classes\Function\ReturnServer.cs" />
+    <Compile Include="Classes\Function\SumInWords\Ru.cs" />
+    <Compile Include="Classes\Function\SumInWords\Ua.cs" />
+    <Compile Include="Classes\Function\TransCyrToLatin.cs" />
+    <Compile Include="Classes\Function\Variables\ConnectionString.cs" />
+    <Compile Include="Classes\Function\Variables\FileFolder.cs" />
+    <Compile Include="Classes\Function\WriteOffGoodsWithParty.cs" />
+    <Compile Include="Classes\Language\Login\Language.cs" />
+    <Compile Include="Classes\Language\Sklad\Language.cs" />
+    <Compile Include="Classes\SMS\infobip_com.cs" />
+    <Compile Include="Classes\SMS\sms48_ru.cs" />
+    <Compile Include="Classes\SMS\sms4b_ru.cs" />
+    <Compile Include="Classes\Update\Prevention.cs" />
+    <Compile Include="Classes\Update\Update.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DevelopController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyAdmPanelController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirBankSumTypes\DirBankSumTypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirBanks\DirBanksController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirBonus2es\DirBonus2esController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirBonus2es\DirBonus2TabsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirBonuses\DirBonusesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirBonuses\DirBonusTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirCashOfficeSumTypes\DirCashOfficeSumTypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirCashOffices\DirCashOfficesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirChars\DirCharColoursController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirChars\DirCharMaterialsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirChars\DirCharNamesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirChars\DirCharSeasonsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirChars\DirCharSexesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirChars\DirCharSizesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirChars\DirCharStylesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirChars\DirCharTexturesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirContractors\DirContractorsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirContractorTypes\DirContractor1TypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirContractorTypes\DirContractor2TypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirCurrencies\DirCurrenciesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirCurrencies\DirCurrencyHistoriesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirDescriptionDiscounts\DirDescriptionDiscountsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirDescriptions\DirDescriptionsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirDiscounts\DirDiscountsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirDiscounts\DirDiscountTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirDomesticExpenses\DirDomesticExpensesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirEmployees\DirEmployeeHistoriesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirEmployees\DirEmployeesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirEmployees\DirEmployeeWarehousesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirMovementDescriptions\DirMovementDescriptionsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirMovementStatuses\DirMovementStatusesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirNomens\DirNomenCategoriesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirNomens\DirNomenHistoriesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirNomens\DirNomensController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirNomens\DirNomenTypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirOrderIntContractors\DirOrderIntContractorsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirOrderIntStatuses\DirOrderIntStatusesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirOrdersStates\DirOrdersStatesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirPaymentTypes\DirPaymentTypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirPriceTypes\DirPriceTypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirReturnTypes\DirReturnTypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirSecondHandLogTypes\DirSecondHandLogTypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirSecondHandStatuses\DirSecondHandStatusesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceComplects\DirServiceComplectsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceContractors\DirServiceContractorsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceDiagnosticRresults\DirServiceDiagnosticRresultsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceJobNomens\DirServiceJobNomenHistoriesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceJobNomens\DirServiceJobNomensController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceLogTypes\DirServiceLogTypesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceNomens\DirServiceNomenCategoriesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceNomens\DirServiceNomenPricesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceNomens\DirServiceNomensController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceNomens\DirServiceNomenTypicalFaultsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceProblems\DirServiceProblemsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirServiceStatuses\DirServiceStatusesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirSms\DirSmsTemplatesController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirVats\DirVatsController.cs" />
+    <Compile Include="Controllers\Sklad\Dir\DirWarehouses\DirWarehousesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocAccounts\DocAccountsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocAccounts\DocAccountTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocActOnWorks\DocActOnWorksController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocActOnWorks\DocActOnWorkTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocActWriteOffs\DocActWriteOffsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocActWriteOffs\DocActWriteOffTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocBankSums\DocBankSumsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocCashOfficeSums\DocCashOfficeSumMovementsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocCashOfficeSums\DocCashOfficeSumsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocDomesticExpenses\DocDomesticExpensesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocDomesticExpenses\DocDomesticExpenseTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocInventories\DocInventoriesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocInventories\DocInventoryTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocMovements\DocMovementsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocMovements\DocMovementTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocNomenRevaluations\DocNomenRevaluationsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocNomenRevaluations\DocNomenRevaluationTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocOrderInts\DocOrderIntsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocPurches\DocPurchesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocPurches\DocPurchTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocRetailActWriteOffs\DocRetailActWriteOffsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocRetailActWriteOffs\DocRetailActWriteOffTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocRetailReturns\DocRetailReturnsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocRetailReturns\DocRetailReturnTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocRetails\DocRetailsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocRetails\DocRetailTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocReturnsCustomers\DocReturnsCustomersController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocReturnsCustomers\DocReturnsCustomerTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocReturnVendors\DocReturnVendorsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocReturnVendors\DocReturnVendorTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSalaries\DocSalariesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSalaries\DocSalaryTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSales\DocSalesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSales\DocSaleTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandInventories\OLD\DocSecondHandInventoriesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandInventories\OLD\DocSecondHandInventoryTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandInventories\DocSecondHandInvsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandInventories\DocSecondHandInvTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandInventories\DocSecondHandRazbor2TabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandInventories\OLD\DocSecondHandRazborsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandInventories\OLD\DocSecondHandRazborTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\OLD\DocSecondHandMovementsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\OLD\DocSecondHandMovementTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\DocSecondHandMovsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\DocSecondHandMovTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\DocSecondHandPurch1TabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\DocSecondHandPurch2TabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\DocSecondHandPurchesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\OLD\DocSecondHandRetailActWriteOffsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\OLD\DocSecondHandRetailActWriteOffTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\OLD\DocSecondHandRetailReturnsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\OLD\DocSecondHandRetailReturnTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\OLD\DocSecondHandRetailsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\OLD\DocSecondHandRetailTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\DocSecondHandReturnsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocSecondHandPurches\DocSecondHandSalesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocServicePurches\DocServiceMovsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocServicePurches\DocServiceMovTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocServicePurches\DocServicePurch1TabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocServicePurches\DocServicePurch2TabsController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\DocServicePurches\DocServicePurchesController.cs" />
+    <Compile Include="Controllers\Sklad\Doc\Docs\Docs.cs" />
+    <Compile Include="Controllers\Sklad\Image\ImageController.cs" />
+    <Compile Include="Controllers\Sklad\List\ListLanguagesController.cs" />
+    <Compile Include="Controllers\Sklad\List\ListObjectFieldNamesController.cs" />
+    <Compile Include="Controllers\Sklad\List\ListObjectPFsController.cs" />
+    <Compile Include="Controllers\Sklad\List\ListObjectPFTabsController.cs" />
+    <Compile Include="Controllers\Sklad\List\ListObjectsController.cs" />
+    <Compile Include="Controllers\Sklad\Logistic\LogisticsController.cs" />
+    <Compile Include="Controllers\Sklad\Logistic\LogisticTabsController.cs" />
+    <Compile Include="Controllers\Sklad\Log\LogLogisticsController.cs" />
+    <Compile Include="Controllers\Sklad\Log\LogMovementsController.cs" />
+    <Compile Include="Controllers\Sklad\Log\LogOrderIntsController.cs" />
+    <Compile Include="Controllers\Sklad\Log\LogSecondHandRazborsController.cs" />
+    <Compile Include="Controllers\Sklad\Log\LogSecondHandsController.cs" />
+    <Compile Include="Controllers\Sklad\Log\LogServicesController.cs" />
+    <Compile Include="Controllers\Sklad\Pay\PayController.cs" />
+    <Compile Include="Controllers\Sklad\Rem\Rem2PartiesController.cs" />
+    <Compile Include="Controllers\Sklad\Rem\Rem2PartyMinusesController.cs" />
+    <Compile Include="Controllers\Sklad\Rem\RemPartiesController.cs" />
+    <Compile Include="Controllers\Sklad\Rem\RemPartyMinusesController.cs" />
+    <Compile Include="Controllers\Sklad\Rem\RemRemnants.cs" />
+    <Compile Include="Controllers\Sklad\Report\DocServicePurchesReport.cs" />
+    <Compile Include="Controllers\Sklad\Report\DocServicePurchesReportController.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportBanksCashOffices.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportBanksCashOfficesController.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportLogistics.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportLogisticsController.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportMovementNomen.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportPriceList.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportRemnants.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportReportProfit.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportRetailCash.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportSalaries.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportSalariesController.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportSalariesWarehouses.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportSalariesWarehousesController.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportTotalTrade.cs" />
+    <Compile Include="Controllers\Sklad\Report\ReportTotalTradeController.cs" />
+    <Compile Include="Controllers\Sklad\Service\API\API10Controller.cs" />
+    <Compile Include="Controllers\Sklad\Service\API\API10XController.cs" />
+    <Compile Include="Controllers\Sklad\Service\ExchangeData\ImportsDocPurchesExcelController.cs" />
+    <Compile Include="Controllers\Sklad\Service\IM\DirWebShopUOsController.cs" />
+    <Compile Include="Controllers\Sklad\Service\Timer\TimerController.cs" />
+    <Compile Include="Controllers\Sklad\SMS\SmsController.cs" />
+    <Compile Include="Controllers\Sklad\Sys\SysJourDispsController.cs" />
+    <Compile Include="Controllers\Sklad\Sys\SysSettingsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbConnectionLogin.cs" />
+    <Compile Include="Models\DbConnectionSklad.cs" />
+    <Compile Include="Models\Login\Dir\DirCountry.cs" />
+    <Compile Include="Models\Login\Dir\DirCustomer.cs" />
+    <Compile Include="Models\Login\Dir\DirLanguage.cs" />
+    <Compile Include="Models\Login\Dir\DirLoginNot.cs" />
+    <Compile Include="Models\Login\Dir\DirPay.cs" />
+    <Compile Include="Models\Login\Dir\DirPayCustomer.cs" />
+    <Compile Include="Models\Login\Dir\DirPayService.cs" />
+    <Compile Include="Models\Login\Jurn\JurnDispError.cs" />
+    <Compile Include="Models\Login\Jurn\JurnDispLogining.cs" />
+    <Compile Include="Models\Login\Sys\SysAdmin.cs" />
+    <Compile Include="Models\Sklad\Dir\DirBank.cs" />
+    <Compile Include="Models\Sklad\Dir\DirBankSumType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirBonus.cs" />
+    <Compile Include="Models\Sklad\Dir\DirBonus2.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCashOffice.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCashOfficeSumType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCharColour.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCharMaterial.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCharName.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCharSeason.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCharSex.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCharSize.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCharStyle.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCharTexture.cs" />
+    <Compile Include="Models\Sklad\Dir\DirContractor.cs" />
+    <Compile Include="Models\Sklad\Dir\DirContractor1Type.cs" />
+    <Compile Include="Models\Sklad\Dir\DirContractor2Type.cs" />
+    <Compile Include="Models\Sklad\Dir\DirCurrency.cs" />
+    <Compile Include="Models\Sklad\Dir\DirDescription.cs" />
+    <Compile Include="Models\Sklad\Dir\DirDescriptionDiscount.cs" />
+    <Compile Include="Models\Sklad\Dir\DirDiscount.cs" />
+    <Compile Include="Models\Sklad\Dir\DirDispOperation.cs" />
+    <Compile Include="Models\Sklad\Dir\DirDomesticExpense.cs" />
+    <Compile Include="Models\Sklad\Dir\DirEmployee.cs" />
+    <Compile Include="Models\Sklad\Dir\DirMovementDescription.cs" />
+    <Compile Include="Models\Sklad\Dir\DirMovementLogType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirMovementStatus.cs" />
+    <Compile Include="Models\Sklad\Dir\DirNomen.cs" />
+    <Compile Include="Models\Sklad\Dir\DirNomenCategory.cs" />
+    <Compile Include="Models\Sklad\Dir\DirNomenType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirOrderIntContractor.cs" />
+    <Compile Include="Models\Sklad\Dir\DirOrderIntStatus.cs" />
+    <Compile Include="Models\Sklad\Dir\DirOrderIntType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirOrderIntLogType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirOrdersState.cs" />
+    <Compile Include="Models\Sklad\Dir\DirPaymentType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirPriceType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirReturnType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirSecondHandLogType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirSecondHandStatus.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceComplect.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceContractor.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceDiagnosticRresult.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceJobNomen.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceLogType.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceNomen.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceNomenCategory.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceProblem.cs" />
+    <Compile Include="Models\Sklad\Dir\DirServiceStatus.cs" />
+    <Compile Include="Models\Sklad\Dir\DirSmsTemplate.cs" />
+    <Compile Include="Models\Sklad\Dir\DirVat.cs" />
+    <Compile Include="Models\Sklad\Dir\DirWarehouse.cs" />
+    <Compile Include="Models\Sklad\Doc\Doc.cs" />
+    <Compile Include="Models\Sklad\Doc\DocAccount.cs" />
+    <Compile Include="Models\Sklad\Doc\DocActOnWork.cs" />
+    <Compile Include="Models\Sklad\Doc\DocActWriteOff.cs" />
+    <Compile Include="Models\Sklad\Doc\DocBankSum.cs" />
+    <Compile Include="Models\Sklad\Doc\DocCashOfficeSum.cs" />
+    <Compile Include="Models\Sklad\Doc\DocDomesticExpense.cs" />
+    <Compile Include="Models\Sklad\Doc\DocInventory.cs" />
+    <Compile Include="Models\Sklad\Doc\DocMovement.cs" />
+    <Compile Include="Models\Sklad\Doc\DocNomenRevaluation.cs" />
+    <Compile Include="Models\Sklad\Doc\DocOrderInt.cs" />
+    <Compile Include="Models\Sklad\Doc\DocPurch.cs" />
+    <Compile Include="Models\Sklad\Doc\DocRetail.cs" />
+    <Compile Include="Models\Sklad\Doc\DocRetailActWriteOff.cs" />
+    <Compile Include="Models\Sklad\Doc\DocRetailReturn.cs" />
+    <Compile Include="Models\Sklad\Doc\DocReturnsCustomer.cs" />
+    <Compile Include="Models\Sklad\Doc\DocReturnVendor.cs" />
+    <Compile Include="Models\Sklad\Doc\DocSalary.cs" />
+    <Compile Include="Models\Sklad\Doc\DocSale.cs" />
+    <Compile Include="Models\Sklad\Doc\DocSecondHandPurch.cs" />
+    <Compile Include="Models\Sklad\Doc\DocServicePurch.cs" />
+    <Compile Include="Models\Sklad\List\ListLanguage.cs" />
+    <Compile Include="Models\Sklad\List\ListObject.cs" />
+    <Compile Include="Models\Sklad\List\ListObjectField.cs" />
+    <Compile Include="Models\Sklad\List\ListObjectFieldName.cs" />
+    <Compile Include="Models\Sklad\List\ListObjectPF.cs" />
+    <Compile Include="Models\Sklad\Logistic\Logistic.cs" />
+    <Compile Include="Models\Sklad\Log\LogLogistic.cs" />
+    <Compile Include="Models\Sklad\Log\LogMovement.cs" />
+    <Compile Include="Models\Sklad\Log\LogOrderInt.cs" />
+    <Compile Include="Models\Sklad\Log\LogSecondHand.cs" />
+    <Compile Include="Models\Sklad\Log\LogSecondHandRazbor.cs" />
+    <Compile Include="Models\Sklad\Log\LogService.cs" />
+    <Compile Include="Models\Sklad\Pay\Pay.cs" />
+    <Compile Include="Models\Sklad\Rem\Rem2Party.cs" />
+    <Compile Include="Models\Sklad\Rem\RemParty.cs" />
+    <Compile Include="Models\Sklad\Rem\Rem2PartyMinus.cs" />
+    <Compile Include="Models\Sklad\Rem\RemPartyMinus.cs" />
+    <Compile Include="Models\Sklad\Rem\RemRemnant.cs" />
+    <Compile Include="Models\Sklad\Service\API\API10.cs" />
+    <Compile Include="Models\Sklad\Service\IM\DirWebShopUO.cs" />
+    <Compile Include="Models\Sklad\Sys\SysGen.cs" />
+    <Compile Include="Models\Sklad\Sys\SysGenBarCode.cs" />
+    <Compile Include="Models\Sklad\Sys\SysJourDisp.cs" />
+    <Compile Include="Models\Sklad\Sys\SysSetting.cs" />
+    <Compile Include="Models\Sklad\Sys\SysVer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\app\app.js" />
+    <Content Include="Content\app\controller\Sklad\Container\controllerContainerHeader.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirBanks\controllerDirBanks.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirBanks\controllerDirBanksGrid.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirBonus2es\controllerDirBonus2es.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirBonus2es\controllerDirBonus2Tabs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirBonuses\controllerDirBonuses.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirBonuses\controllerDirBonusTabs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirCashOffices\controllerDirCashOfficesGrid.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirCashOffices\controllerDirCashOffices.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirChars\controllerDirCharColours.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirChars\controllerDirCharMaterials.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirChars\controllerDirCharNames.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirChars\controllerDirCharSeasons.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirChars\controllerDirCharSexes.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirChars\controllerDirCharSizes.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirChars\controllerDirCharStyles.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirChars\controllerDirCharTextures.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirContractors\controllerDirContractors.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirCurrencies\controllerDirCurrencies.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirCurrencies\controllerDirCurrencyHistories.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirDomesticExpenses\controllerDirDomesticExpenses.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirMovementDescriptions\controllerDirMovementDescriptions.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirDescriptions\controllerDirDescriptions.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirDiscounts\controllerDirDiscounts.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirDiscounts\controllerDirDiscountTabs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirEmployees\controllerDirEmployeeHistories.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirEmployees\controllerDirEmployees.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirNomens\controllerDirNomenRemParties.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirNomens\controllerDirNomensSelect.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirNomens\controllerDirNomensWinEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirNomens\controllerDirNomens.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirNomens\controllerDirNomenCategories.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirNomens\controllerDirNomensWinComboEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirOrdersStates\controllerDirOrdersStates.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirReturnTypes\controllerDirReturnTypes.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceDiagnosticRresults\controllerDirServiceDiagnosticRresults.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceJobNomens\controllerDirServiceDiagnosticRresultsWin.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceNomens\controllerDirServiceNomenTypicalFaults.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceProblems\controllerDirServiceProblems.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceContractors\controllerDirServiceContractors.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceJobNomens\controllerDirServiceJobNomenPrices.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceJobNomens\controllerDirServiceJobNomens.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceJobNomens\controllerDirServiceJobNomensWinEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceNomens\controllerDirServiceNomenCategories.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceNomens\controllerDirServiceNomens.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceNomens\controllerDirServiceNomensWinEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirServiceComplects\controllerDirServiceComplects.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirSmsTemplates\controllerDirSmsTemplates.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirVats\controllerDirVats.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Dir\DirWarehouses\controllerDirWarehouses.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocAccounts\controllerDocAccounts.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocAccounts\controllerDocAccountsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocAccounts\controllerDocAccountTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocActOnWorks\controllerDocActOnWorks.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocActOnWorks\controllerDocActOnWorksEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocActOnWorks\controllerDocActOnWorkTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocActWriteOffs\controllerDocActWriteOffs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocActWriteOffs\controllerDocActWriteOffsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocActWriteOffs\controllerDocActWriteOffTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocBankSums\controllerDocBankSumsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocCashOfficeSums\controllerDocCashOfficeSumsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocCashOfficeSums\controllerDocCashOfficeSumMovements.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocCashOfficeSums\controllerDocCashOfficeSumMovementsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocInventories\controllerDocInventories.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocInventories\controllerDocInventoriesEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocInventories\controllerDocInventoryTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocMovements\controllerDocMovementsLogistics.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocOrderInts\controllerDocOrderIntsPurches.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\controllerDocSecondHandInvs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\controllerDocSecondHandMovs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\controllerDocSecondHandRazborNomens.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\OLD\controllerDocSecondHandInventories_OLD.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\controllerDocSecondHandRazbors.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocServicePurches\controllerDocServiceInvs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocServicePurches\controllerDocServiceMovs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocServicePurches\controllerDocServiceWorkshopsDiscount.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocServicePurches\controllerDocServicePurchesSelect.js" />
+    <Content Include="Content\app\controller\Sklad\Object\KKM\controllerKKMAdding.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Logistic\controllerLogistics.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocMovements\controllerDocMovements.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocMovements\controllerDocMovementsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocMovements\controllerDocMovementTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocNomenRevaluations\controllerDocNomenRevaluations.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocNomenRevaluations\controllerDocNomenRevaluationsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocNomenRevaluations\controllerDocNomenRevaluationTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocOrderInts\controllerDocOrderInts.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocOrderInts\controllerDocOrderIntsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocReturnsCustomers\controllerDocReturnsCustomers.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocReturnsCustomers\controllerDocReturnsCustomersEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocReturnsCustomers\controllerDocReturnsCustomerTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocReturnVendors\controllerDocReturnVendors.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocReturnVendors\controllerDocReturnVendorsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocReturnVendors\controllerDocReturnVendorTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSalaries\controllerDocSalaries.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSalaries\controllerDocSalariesEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSalaries\controllerDocSalaryTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSales\controllerDocSales.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSales\controllerDocSalesEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSales\controllerDocSaleTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocPurches\controllerDocPurches.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocPurches\controllerDocPurchesEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocPurches\controllerDocPurchTabsEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\OLD\controllerDocSecondHandMovements_OLD.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\controllerDocSecondHandPurchesEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\controllerDocSecondHandWorkshops.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocSecondHandPurches\controllerDocSecondHandWorkshopsInRetail.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocServicePurches\controllerDocServiceMasterSelect.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocServicePurches\controllerDocServiceWorkshopHistories.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocServicePurches\controllerDocServiceWorkshops.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Doc\DocServicePurches\controllerDocServicePurchesEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\List\controllerListObjectPFs.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Log\controllerLogLogistics.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Log\controllerLogMovements.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Log\controllerLogOrderInts.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Log\controllerLogSecondHands.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Log\controllerLogServices.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Pay\controllerPayEdit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Pay\controllerPay.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerDocServicePurchesReport.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportBanksCashOffices.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportMovementNomen.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportLogistics.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportSalariesWarehouses.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportSalaries.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportTotalTrade.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportRemnants.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportProfit.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Report\controllerReportPriceList.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Service\API\controllerAPI10.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Service\ExchangeData\controllerImportsDocPurchesExcel.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Service\IM\controllerVitrinaInTrade.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Sms\controllerSms.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Start\controllerDirWarehouseSelect - Копировать.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Start\controllerDirWarehouseSelect.js" />
+    <Content Include="Content\app\controller\Sklad\Object\Sys\SysSettings\controllerSysSettingsEdit.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBankSumTypes\modelDirBankSumTypesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBanks\modelDirBanksGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBanks\modelDirBanksTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBonus2es\modelDirBonus2esGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBonus2es\modelDirBonus2esTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBonus2es\modelDirBonus2TabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBonuses\modelDirBonusesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBonuses\modelDirBonusesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirBonuses\modelDirBonusTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirCashOfficeSumTypes\modelDirCashOfficeSumTypesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirCashOffices\modelDirCashOfficesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirCashOffices\modelDirCashOfficesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharMaterialsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharNamesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharSeasonsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharSexesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharSizesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharStylesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharTexturesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharColoursGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharMaterialsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharNamesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharSeasonsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharSexesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharSizesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharStylesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharTexturesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirChars\modelDirCharColoursTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirContractor2Types\modelDirContractor2TypesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirContractor2Types\modelDirContractor2TypesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirContractors\modelDirContractorsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirContractors\modelDirContractorsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirContractor1Types\modelDirContractor1TypesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirContractor1Types\modelDirContractor1TypesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirCurrencies\modelDirCurrenciesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirCurrencies\modelDirCurrenciesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirCurrencies\modelDirCurrencyHistoriesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirDomesticExpenses\modelDirDomesticExpensesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirDomesticExpenses\modelDirDomesticExpensesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirMovementDescriptions\modelDirMovementDescriptionsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirMovementDescriptions\modelDirMovementDescriptionsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirDescriptions\modelDirDescriptionsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirDescriptions\modelDirDescriptionsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirDiscounts\modelDirDiscountsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirDiscounts\modelDirDiscountTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirDiscounts\modelDirDiscountsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirEmployees\modelDirEmployeeWarehousesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirEmployees\modelDirEmployeeHistoriesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirEmployees\modelDirEmployeesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirEmployees\modelDirEmployeesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirMovementStatuses\modelDirMovementStatusesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirMovementStatuses\modelDirMovementStatusesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirNomens\modelDirNomenHistoriesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirNomens\modelDirNomenTypesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirNomens\modelDirNomenTypesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirNomens\modelDirNomensGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirNomens\modelDirNomenCategoriesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirNomens\modelDirNomensTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirNomens\modelDirNomenCategoriesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirOrdersStates\modelDirOrdersStatesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirOrdersStates\modelDirOrdersStatesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirPaymentTypes\modelDirPaymentTypesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirPriceTypes\modelDirPriceTypesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirReturnTypes\modelDirReturnTypesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirReturnTypes\modelDirReturnTypesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirSecondHandStatuses\modelDirSecondHandStatusesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirSecondHandStatuses\modelDirSecondHandStatusesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceDiagnosticRresults\modelDirServiceDiagnosticRresultsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceDiagnosticRresults\modelDirServiceDiagnosticRresultsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceNomens\modelDirServiceNomenPricesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceNomens\modelDirServiceNomenPricesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceNomens\modelDirServiceNomenTypicalFaultsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceNomens\modelDirServiceNomenTypicalFaultsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceProblems\modelDirServiceProblemsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceProblems\modelDirServiceProblemsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceContractors\modelDirServiceContractorsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceContractors\modelDirServiceContractorsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceJobNomens\modelDirServiceJobNomenHistoriesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceJobNomens\modelDirServiceJobNomensGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceJobNomens\modelDirServiceJobNomensTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceNomens\modelDirServiceNomenCategoriesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceNomens\modelDirServiceNomenCategoriesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceNomens\modelDirServiceNomensGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceNomens\modelDirServiceNomensTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceStatuses\modelDirServiceStatusesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceStatuses\modelDirServiceStatusesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceComplects\modelDirServiceComplectsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirServiceComplects\modelDirServiceComplectsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirSmsTemplates\modelDirSmsTemplatesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirSmsTemplates\modelDirSmsTemplatesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirVats\modelDirVatsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirVats\modelDirVatsTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirWarehouses\modelDirWarehousesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Dir\DirWarehouses\modelDirWarehousesTree.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocAccounts\modelDocAccountsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocAccounts\modelDocAccountTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocActOnWorks\modelDocActOnWorksGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocActOnWorks\modelDocActOnWorkTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocActWriteOffs\modelDocActWriteOffsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocActWriteOffs\modelDocActWriteOffTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocCashOfficeSums\modelDocCashOfficeSumMovementsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocDomesticExpenses\modelDocDomesticExpensesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocDomesticExpenses\modelDocDomesticExpenseTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocInventories\modelDocInventoriesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocInventories\modelDocInventoryTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocMovements\modelDocMovementsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocMovements\modelDocMovementTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocNomenRevaluations\modelDocNomenRevaluationsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocNomenRevaluations\modelDocNomenRevaluationTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocOrderInts\modelDocOrderIntsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocRetailReturns\modelDocRetailReturnsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocRetailReturns\modelDocRetailReturnTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocRetails\modelDocRetailsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocRetails\modelDocRetailTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocReturnsCustomers\modelDocReturnsCustomersGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocReturnsCustomers\modelDocReturnsCustomerTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocReturnVendors\modelDocReturnVendorsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocReturnVendors\modelDocReturnVendorTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSalaries\modelDocSalariesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSalaries\modelDocSalaryTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSales\modelDocSalesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSales\modelDocSaleTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocPurches\modelDocPurchesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocPurches\modelDocPurchTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandInvsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandInvTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\OLD\modelDocSecondHandInventoryTabsGrid_OLD.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\OLD\modelDocSecondHandInventoriesGrid_OLD.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandMovsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\OLD\modelDocSecondHandMovementsGrid_OLD.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandMovTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\OLD\modelDocSecondHandMovementTabsGrid_OLD.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\OLD\modelDocSecondHandRazborsGrid_OLD.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\OLD\modelDocSecondHandRazborTabsGrid_OLD.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandRazbor2TabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandRazborsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandSalesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\OLD\modelDocSecondHandRetailTabsGrid_OLD.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandPurch1TabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandPurch2TabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocSecondHandPurches\modelDocSecondHandPurchesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocServicePurches\modelDocServiceInvsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocServicePurches\modelDocServiceInvTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocServicePurches\modelDocServiceMovsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocServicePurches\modelDocServiceMovTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocServicePurches\modelDocServicePurch2TabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocServicePurches\modelDocServicePurch1TabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Doc\DocServicePurches\modelDocServicePurchesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\List\modelListObjectPFsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Logistic\modelLogisticTabsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Logistic\modelLogisticsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Log\modelLogLogisticsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Log\modelLogMovementsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Log\modelLogOrderIntsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Log\modelLogSecondHandRazborsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Log\modelLogSecondHandsGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Log\modelLogServicesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Pay\modelPayGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Rem\RemParties\modelRem2PartiesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Rem\RemParties\modelRemPartiesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Rem\RemPartyMinuses\modelRem2PartyMinusesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Rem\RemPartyMinuses\modelRemPartyMinusesGrid.js" />
+    <Content Include="Content\app\model\Sklad\Object\Report\modelDocServicePurchesReport.js" />
+    <Content Include="Content\app\model\Sklad\Object\Report\modelReportBanksCashOffices.js" />
+    <Content Include="Content\app\model\Sklad\Object\Report\modelReportLogistics.js" />
+    <Content Include="Content\app\model\Sklad\Object\Report\modelReportSalariesWarehouses.js" />
+    <Content Include="Content\app\model\Sklad\Object\Report\modelReportSalaries.js" />
+    <Content Include="Content\app\model\Sklad\Object\Report\modelReportTotalTrade.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBankSumTypes\storeDirBankSumTypesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBanks\storeDirBanksGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBanks\storeDirBanksTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBonus2es\storeDirBonus2esGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBonus2es\storeDirBonus2esTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBonus2es\storeDirBonus2TabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBonuses\storeDirBonusesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBonuses\storeDirBonusesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirBonuses\storeDirBonusTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirCashOfficeSumTypes\storeDirCashOfficeSumTypesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirCashOffices\storeDirCashOfficesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirCashOffices\storeDirCashOfficesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharMaterialsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharNamesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharSeasonsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharSexesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharSizesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharStylesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharTexturesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharColoursGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharMaterialsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharNamesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharSeasonsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharSexesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharSizesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharStylesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharTexturesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirChars\storeDirCharColoursTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirContractor2Types\storeDirContractor2TypesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirContractor2Types\storeDirContractor2TypesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirContractors\storeDirContractorsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirContractors\storeDirContractorsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirContractor1Types\storeDirContractor1TypesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirContractor1Types\storeDirContractor1TypesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirCurrencies\storeDirCurrenciesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirCurrencies\storeDirCurrenciesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirCurrencies\storeDirCurrencyHistoriesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirDomesticExpenses\storeDirDomesticExpensesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirDomesticExpenses\storeDirDomesticExpensesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirMovementDescriptions\storeDirMovementDescriptionsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirMovementDescriptions\storeDirMovementDescriptionsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirDescriptions\storeDirDescriptionsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirDescriptions\storeDirDescriptionsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirDiscounts\storeDirDiscountTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirDiscounts\storeDirDiscountsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirDiscounts\storeDirDiscountsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirEmployees\storeDirEmployeeWarehousesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirEmployees\storeDirEmployeeHistoriesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirEmployees\storeDirEmployeesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirEmployees\storeDirEmployeesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirMovementStatuses\storeDirMovementStatusesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirMovementStatuses\storeDirMovementStatusesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirNomens\storeDirNomenHistoriesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirNomens\storeDirNomenTypesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirNomens\storeDirNomenTypesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirNomens\storeDirNomensGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirNomens\storeDirNomenCategoriesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirNomens\storeDirNomensTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirNomens\storeDirNomenCategoriesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirOrdersStates\storeDirOrdersStatesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirOrdersStates\storeDirOrdersStatesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirPaymentTypes\storeDirPaymentTypesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirPriceTypes\storeDirPriceTypesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirReturnTypes\storeDirReturnTypesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirReturnTypes\storeDirReturnTypesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirSecondHandStatuses\storeDirSecondHandStatusesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirSecondHandStatuses\storeDirSecondHandStatusesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceDiagnosticRresults\storeDirServiceDiagnosticRresultsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceDiagnosticRresults\storeDirServiceDiagnosticRresultsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceNomens\storeDirServiceNomenPricesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceNomens\storeDirServiceNomenPricesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceNomens\storeDirServiceNomenTypicalFaultsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceNomens\storeDirServiceNomenTypicalFaultsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceProblems\storeDirServiceProblemsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceProblems\storeDirServiceProblemsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceContractors\storeDirServiceContractorsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceContractors\storeDirServiceContractorsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceJobNomens\storeDirServiceJobNomenHistoriesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceJobNomens\storeDirServiceJobNomensGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceJobNomens\storeDirServiceJobNomensTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceNomens\storeDirServiceNomenCategoriesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceNomens\storeDirServiceNomenCategoriesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceNomens\storeDirServiceNomensGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceNomens\storeDirServiceNomensTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceStatuses\storeDirServiceStatusesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceStatuses\storeDirServiceStatusesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceComplects\storeDirServiceComplectsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirServiceComplects\storeDirServiceComplectsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirSmsTemplates\storeDirSmsTemplatesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirSmsTemplates\storeDirSmsTemplatesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirVats\storeDirVatsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirVats\storeDirVatsTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirWarehouses\storeDirWarehousesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Dir\DirWarehouses\storeDirWarehousesTree.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocAccounts\storeDocAccountsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocAccounts\storeDocAccountTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocActOnWorks\storeDocActOnWorksGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocActOnWorks\storeDocActOnWorkTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocActWriteOffs\storeDocActWriteOffsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocActWriteOffs\storeDocActWriteOffTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocCashOfficeSums\storeDocCashOfficeSumMovementsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocDomesticExpenses\storeDocDomesticExpensesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocDomesticExpenses\storeDocDomesticExpenseTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocInventories\storeDocInventoriesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocInventories\storeDocInventoryTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocMovements\storeDocMovementsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocMovements\storeDocMovementTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocNomenRevaluations\storeDocNomenRevaluationsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocNomenRevaluations\storeDocNomenRevaluationTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocOrderInts\storeDocOrderIntsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocRetailReturns\storeDocRetailReturnsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocRetailReturns\storeDocRetailReturnTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocRetails\storeDocRetailsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocRetails\storeDocRetailTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocReturnsCustomers\storeDocReturnsCustomersGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocReturnsCustomers\storeDocReturnsCustomerTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocReturnVendors\storeDocReturnVendorsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocReturnVendors\storeDocReturnVendorTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSalaries\storeDocSalariesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSalaries\storeDocSalaryTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSales\storeDocSalesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSales\storeDocSaleTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocPurches\storeDocPurchesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocPurches\storeDocPurchTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandInvsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\OLD\storeDocSecondHandInventoriesGrid_OLD.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandInvTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\OLD\storeDocSecondHandInventoryTabsGrid_OLD.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandMovsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\OLD\storeDocSecondHandMovementsGrid_OLD.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandMovTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\OLD\storeDocSecondHandMovementTabsGrid_OLD.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\OLD\storeDocSecondHandRazborTabsGrid_OLD.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandRazbor2TabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandRazborsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandSalesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\OLD\storeDocSecondHandRetailTabsGrid_OLD.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandPurch1TabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandPurch2TabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocSecondHandPurches\storeDocSecondHandPurchesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocServicePurches\storeDocServiceInvsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocServicePurches\storeDocServiceInvTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocServicePurches\storeDocServiceMovsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocServicePurches\storeDocServiceMovTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocServicePurches\storeDocServicePurch2TabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocServicePurches\storeDocServicePurch1TabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Doc\DocServicePurches\storeDocServicePurchesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\List\storeListObjectPFsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Logistic\storeLogisticTabsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Logistic\storeLogisticsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Log\storeLogLogisticsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Log\storeLogMovementsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Log\storeLogOrderIntsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Log\storeLogSecondHandRazborsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Log\storeLogSecondHandsGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Log\storeLogServicesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Pay\storePayGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Rem\RemParties\storeRem2PartiesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Rem\RemParties\storeRemPartiesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Rem\RemPartyMinuses\storeRem2PartyMinusesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Rem\RemPartyMinuses\storeRemPartyMinusesGrid.js" />
+    <Content Include="Content\app\store\Sklad\Object\Report\storeDocServicePurchesReport.js" />
+    <Content Include="Content\app\store\Sklad\Object\Report\storeReportBanksCashOffices.js" />
+    <Content Include="Content\app\store\Sklad\Object\Report\storeReportLogistics.js" />
+    <Content Include="Content\app\store\Sklad\Object\Report\storeReportSalariesWarehouses.js" />
+    <Content Include="Content\app\store\Sklad\Object\Report\storeReportSalaries.js" />
+    <Content Include="Content\app\store\Sklad\Object\Report\storeReportTotalTrade.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Dir\DirEmployees\viewcontrollerDirEmployees.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Dir\DirNomens\viewcontrollerDirNomensImg.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Dir\DirNomens\viewcontrollerDirNomens.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocDomesticExpenses\viewcontrollerDocDomesticExpenses.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocDomesticExpenses\viewcontrollerDocDomesticExpensesEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocDomesticExpenses\viewcontrollerDocDomesticExpenseTabsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetailReturns\viewcontrollerDocRetailReturns.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetailReturns\viewcontrollerDocRetailReturnTabsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetailReturns\я.OLD_viewcontrollerDocRetailReturnsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetailReturns\viewcontrollerDocRetailReturnsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\viewcontrollerDocSecondHandInvsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewcontrollerDocSecondHandInventoriesEdit_OLD.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\viewcontrollerDocSecondHandMovsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\viewcontrollerDocSecondHandMovTabsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\viewcontrollerDocSecondHandRetailActWriteOffsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\viewcontrollerDocSecondHandReturnTabsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewcontrollerDocSecondHandRetailReturnTabsEdit_OLD.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewcontrollerDocSecondHandMovementsEdit_OLD.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\viewcontrollerDocSecondHandSalesEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewcontrollerDocSecondHandRetailsEdit_OLD.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewcontrollerDocSecondHandMovementTabsEdit_OLD.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\viewcontrollerDocSecondHandSaleTabsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewcontrollerDocSecondHandRetailTabsEdit_OLD.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetails\viewcontrollerDocRetails.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetailActWriteOffs\viewcontrollerDocRetailActWriteOffsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetails\viewcontrollerDocRetailTabsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetails\я.OLD_viewcontrollerDocRetailsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocRetails\viewcontrollerDocRetailsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocReturnsCustomers\viewcontrollerDocReturnsCustomersEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocAll\viewcontrollerDocAllEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocServicePurches\viewcontrollerDocServiceInvsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocServicePurches\viewcontrollerDocServiceMovsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Doc\DocServicePurches\viewcontrollerDocServiceMovTabsEdit.js" />
+    <Content Include="Content\app\viewcontroller\Sklad\Object\Service\IM\viewcontrollerVitrinaInTrade.js" />
+    <Content Include="Content\app\view\Sklad\Container\viewContainerCentralPanel.js" />
+    <Content Include="Content\app\view\Sklad\Container\viewContainerCentralTab.js" />
+    <Content Include="Content\app\view\Sklad\Container\viewContainerFooter.js" />
+    <Content Include="Content\app\view\Sklad\Container\viewContainerHeader.js" />
+    <Content Include="Content\app\view\Sklad\Container\viewContainerLeft.js" />
+    <Content Include="Content\app\view\Sklad\Container\viewContainerRight.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirNomens\viewDirNomensWinComboEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirOrdersStates\viewDirOrdersStates.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocCashOfficeSums\viewDocCashOfficeSumMovements.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocCashOfficeSums\viewDocCashOfficeSumMovementsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocOrderInts\viewDocOrderIntsPurches.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandInvs.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandInvsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandMovTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandMovs.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandMovsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandRazborNomens.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandInventories_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandInventoriesEdit_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandRazbors_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandRazbors.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandReturnTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandSaleTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandSalesEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceInvs.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceInvsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceMovs.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceMovsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceMovTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceWorkshopsDiscount.js" />
+    <Content Include="Content\app\view\Sklad\Object\KKM\viewKKMAdding.js" />
+    <Content Include="Content\app\view\Sklad\Object\Service\API\viewAPI10.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirBanks\viewDirBanks.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirBanks\viewDirBanksGrid.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirBonus2es\viewDirBonus2es.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirBonuses\viewDirBonuses.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirCashOffices\viewDirCashOfficesGrid.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirCashOffices\viewDirCashOffices.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirChars\viewDirCharColours.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirChars\viewDirCharMaterials.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirChars\viewDirCharNames.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirChars\viewDirCharSeasons.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirChars\viewDirCharSexes.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirChars\viewDirCharSizes.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirChars\viewDirCharStyles.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirChars\viewDirCharTextures.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirContractors\viewDirContractors.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirCurrencies\viewDirCurrencies.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirCurrencies\viewDirCurrencyHistories.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirDomesticExpenses\viewDirDomesticExpenses.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirMovementDescriptions\viewDirMovementDescriptions.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirDescriptions\viewDirDescriptions.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirDiscounts\viewDirDiscounts.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirEmployees\viewDirEmployeeHistories.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirEmployees\viewDirEmployees.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirNomens\viewDirNomensSelect.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirReturnTypes\viewDirReturnTypes.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceDiagnosticRresults\viewDirServiceDiagnosticRresults.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceJobNomens\viewDirServiceDiagnosticRresultsWin.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceNomens\viewDirServiceNomenTypicalFaults.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirSmsTemplates\viewDirSmsTemplates.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocDomesticExpenses\viewDocDomesticExpenses.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocDomesticExpenses\viewDocDomesticExpensesEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocDomesticExpenses\viewDocDomesticExpenseTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocInventories\viewDocInventoryTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocMovements\viewDocMovementsLogistics.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServicePurchesSelect.js" />
+    <Content Include="Content\app\view\Sklad\Object\Logistic\viewLogistics.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocNomenRevaluations\viewDocNomenRevaluations.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocNomenRevaluations\viewDocNomenRevaluationsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocNomenRevaluations\viewDocNomenRevaluationTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocOrderInts\viewDocOrderIntsNomensEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocOrderInts\viewDocOrderIntsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirNomens\viewDirNomensImg.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirNomens\viewDirNomenRemParties.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirNomens\viewDirNomensWinEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirNomens\viewDirNomens.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirNomens\viewDirNomenCategories.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceProblems\viewDirServiceProblems.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceContractors\viewDirServiceContractors.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceJobNomens\viewDirServiceJobNomens.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceJobNomens\viewDirServiceJobNomensWinEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceNomens\viewDirServiceNomenCategories.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceNomens\viewDirServiceNomens.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceNomens\viewDirServiceNomensWinEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceComplects\viewDirServiceComplects.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirVats\viewDirVats.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirWarehouses\viewDirWarehouses.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocAccounts\viewDocAccounts.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocAccounts\viewDocAccountsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocAccounts\viewDocAccountTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocActOnWorks\viewDocActOnWorks.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocActOnWorks\viewDocActOnWorksEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocActOnWorks\viewDocActOnWorkTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocActWriteOffs\viewDocActWriteOffs.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocActWriteOffs\viewDocActWriteOffsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocActWriteOffs\viewDocActWriteOffTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocBankSums\viewDocBankSumsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocCashOfficeSums\viewDocCashOfficeSumsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocInventories\viewDocInventories.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocInventories\viewDocInventoriesEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocMovements\viewDocMovements.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocMovements\viewDocMovementsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocMovements\viewDocMovementTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocOrderInts\viewDocOrderInts.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocPurches\viewDocPurches.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocPurches\viewDocPurchesEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocPurches\viewDocPurchTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetailActWriteOffs\viewDocRetailActWriteOffsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetailReturns\viewDocRetailReturns.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetailReturns\viewDocRetailReturnTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetailReturns\я.OLD_viewDocRetailReturnsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetailReturns\viewDocRetailReturnsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetails\viewDocRetails.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetails\viewDocRetailTabsEditActWriteOff_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetails\я.OLD_viewDocRetailsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetails\viewDocRetailsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocRetails\viewDocRetailTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocReturnsCustomers\viewDocReturnsCustomers.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocReturnsCustomers\viewDocReturnsCustomersEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocReturnsCustomers\viewDocReturnsCustomerTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocReturnVendors\viewDocReturnVendors.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocReturnVendors\viewDocReturnVendorsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocReturnVendors\viewDocReturnVendorTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSalaries\viewDocSalaries.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSalaries\viewDocSalariesEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSalaries\viewDocSalaryTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSales\viewDocSales.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSales\viewDocSalesEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSales\viewDocSaleTabsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Dir\DirServiceJobNomens\viewDirServiceJobNomenPrices.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandMovementTabsEdit_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandMovements_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandMovementsEdit_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandRetailActWriteOffsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandRetailReturnTabsEdit_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandRetailsEdit_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\OLD\viewDocSecondHandRetailTabsEdit_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandPurchesEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandWorkshops.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocSecondHandPurches\viewDocSecondHandWorkshopsInRetail.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceMasterSelect.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceWorkshopHistories.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServiceWorkshops.js" />
+    <Content Include="Content\app\view\Sklad\Object\Doc\DocServicePurches\viewDocServicePurchesEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\List\viewListObjectPFs.js" />
+    <Content Include="Content\app\view\Sklad\Object\Log\viewLogLogistics.js" />
+    <Content Include="Content\app\view\Sklad\Object\Log\viewLogMovements.js" />
+    <Content Include="Content\app\view\Sklad\Object\Log\viewLogOrderInts.js" />
+    <Content Include="Content\app\view\Sklad\Object\Log\viewLogSecondHands.js" />
+    <Content Include="Content\app\view\Sklad\Object\Log\viewLogServices.js" />
+    <Content Include="Content\app\view\Sklad\Object\Main\viewMain.js" />
+    <Content Include="Content\app\view\Sklad\Object\Pay\viewPayEdit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Pay\viewPay.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewDocServicePurchesReport.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportProfit.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportBanksCashOffices.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportMovementNomen.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportLogistics.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportSalariesWarehouses.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportSalaries.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportTotalTrade.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportRemnants.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportPriceList.js" />
+    <Content Include="Content\app\view\Sklad\Object\Report\viewReportRetailCash.js" />
+    <Content Include="Content\app\view\Sklad\Object\Service\ExchangeData\viewImportsDocPurchesExcel.js" />
+    <Content Include="Content\app\view\Sklad\Object\Service\IM\viewVitrinaInTrade.js" />
+    <Content Include="Content\app\view\Sklad\Object\Sms\viewSms.js" />
+    <Content Include="Content\app\view\Sklad\Object\Start\viewKKMLoader.js" />
+    <Content Include="Content\app\view\Sklad\Object\Start\viewDirWarehouseSelect.js" />
+    <Content Include="Content\app\view\Sklad\Object\Sys\SysSettings\viewSysSettingsEdit.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewComboBoxTree.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewComboBoxPrompt.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewComboBox.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewDateFieldFix.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewDateField.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewDirNomensComboEdit.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewDocOrderIntsPattern_OLD.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewDocOrderIntsPattern.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewDirServiceJobNomensEdit.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewDirServiceNomensEdit.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewDirNomensEdit.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridLogistics.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridOrder.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridMovementsLogistics.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridRem22.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridRemPurch.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridRem2.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridSecondHandRazborLog.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridSecondHandRazbor.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridSecondHand.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridSecondHandLog.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGrid.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewMyOverride.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridServiceLog.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridService.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridDocRetail.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridNoTBar.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridPF.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridDir.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridDirNomen.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridDoc.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewGridRem.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTreeCombo.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTreeDir.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTreeDirRetail.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTriggerDirAll.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTriggerDir.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTriggerDirField.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTriggerDirFieldRetail.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTriggerDirRetail.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTriggerSearchGrid.js" />
+    <Content Include="Content\app\view\Sklad\Other\Pattern\viewTriggerSearch.js" />
+    <Content Include="Content\develop\app.js" />
+    <Content Include="Content\develop\controller\Sklad\Container\controllerContainerLeft.js" />
+    <Content Include="Content\develop\controller\Sklad\Object\List\controllerListObjectPFTabsEdit.js" />
+    <Content Include="Content\develop\controller\Sklad\Object\List\controllerListObjectPFsEdit.js" />
+    <Content Include="Content\develop\controller\Sklad\Object\List\controllerListObjectPFs.js" />
+    <Content Include="Content\develop\model\Sklad\Container\ContainerLeft\modelPanelJournal.js" />
+    <Content Include="Content\develop\model\Sklad\Object\List\modelListObjectFieldNamesGrid.js" />
+    <Content Include="Content\develop\model\Sklad\Object\List\modelListObjectPFTabsGrid.js" />
+    <Content Include="Content\develop\model\Sklad\Object\List\modelListLanguagesGrid.js" />
+    <Content Include="Content\develop\model\Sklad\Object\List\modelListObjectPFsGrid.js" />
+    <Content Include="Content\develop\store\Sklad\Container\ContainerLeft\storePanelJournal.js" />
+    <Content Include="Content\develop\store\Sklad\Object\List\storeListLanguagesGrid.js" />
+    <Content Include="Content\develop\store\Sklad\Object\List\storeListObjectFieldNamesGrid.js" />
+    <Content Include="Content\develop\store\Sklad\Object\List\storeListObjectPFsGrid.js" />
+    <Content Include="Content\develop\store\Sklad\Object\List\storeListObjectPFTabsGrid.js" />
+    <Content Include="Content\develop\view\Sklad\Container\ContainerLeft\viewPanelJournal.js" />
+    <Content Include="Content\develop\view\Sklad\Container\viewContainerCentralPanel.js" />
+    <Content Include="Content\develop\view\Sklad\Container\viewContainerCentralTab.js" />
+    <Content Include="Content\develop\view\Sklad\Container\viewContainerFooter.js" />
+    <Content Include="Content\develop\view\Sklad\Container\viewContainerHeader.js" />
+    <Content Include="Content\develop\view\Sklad\Container\viewContainerLeft.js" />
+    <Content Include="Content\develop\view\Sklad\Object\List\viewListObjectPFTabsEdit.js" />
+    <Content Include="Content\develop\view\Sklad\Object\List\viewListObjectPFsEdit.js" />
+    <Content Include="Content\develop\view\Sklad\Object\List\viewListObjectPFs.js" />
+    <Content Include="Content\develop\view\Sklad\Object\Main\viewMain.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewComboBox.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewDateField.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewDirNomensEdit.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewGridDir.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewGridPF.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewGridDirNomen.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewGridDoc.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewGridRem.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewTreeCombo.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewTreeDir.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewTriggerDir.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewTriggerDirField.js" />
+    <Content Include="Content\develop\view\Sklad\Other\Pattern\viewTriggerSearch.js" />
+    <Content Include="Content\kkm\Function\FunctionProj.js" />
+    <Content Include="Content\kkm\Function\FunctionTest.js" />
+    <Content Include="Content\other\Function\Function.js" />
+    <Content Include="Content\other\Object\ObjectConfigPF.js" />
+    <Content Include="Content\other\Object\ObjectConfig.js" />
+    <Content Include="Content\other\Object\ObjectReportConfig.js" />
+    <Content Include="Content\other\Object\ObjectEditConfig.js" />
+    <Content Include="Content\other\Object\ObjectShow.js" />
+    <Content Include="Content\other\Object\ObjectShow_NotCentral.js" />
+    <Content Include="Content\other\Variables\Variables.js" />
+    <Content Include="Scripts\sklad\images\Status\shop_16.png" />
+    <Content Include="Text\OLD\Content\retail_NotWork\app.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirContractors\modelDirContractorsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirContractors\modelDirContractorsTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirNomens\modelDirNomenCategoriesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirNomens\modelDirNomenCategoriesTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirNomens\modelDirNomenHistoriesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirNomens\modelDirNomensGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirNomens\modelDirNomensTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirNomens\modelDirNomenTypesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirNomens\modelDirNomenTypesTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirWarehouses\modelDirWarehousesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirWarehouses\modelDirWarehousesTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Doc\DocRetailReturns\modelDocRetailReturnsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Doc\DocRetailReturns\modelDocRetailReturnTabsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Doc\DocRetails\modelDocRetailsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Doc\DocRetails\modelDocRetailTabsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Rem\RemParties\modelRemPartiesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Rem\RemPartyMinuses\modelRemPartyMinusesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirContractors\storeDirContractorsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirContractors\storeDirContractorsTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirNomens\storeDirNomenCategoriesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirNomens\storeDirNomenCategoriesTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirNomens\storeDirNomenHistoriesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirNomens\storeDirNomensGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirNomens\storeDirNomensTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirNomens\storeDirNomenTypesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirNomens\storeDirNomenTypesTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirPaymentTypes\storeDirPaymentTypesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirWarehouses\storeDirWarehousesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Dir\DirWarehouses\storeDirWarehousesTree.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Doc\DocRetailReturns\storeDocRetailReturnsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Doc\DocRetailReturns\storeDocRetailReturnTabsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Doc\DocRetails\storeDocRetailsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Doc\DocRetails\storeDocRetailTabsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\List\modelListObjectPFsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\List\storeListObjectPFsGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Rem\RemParties\storeRemPartiesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\store\Sklad\Object\Rem\RemPartyMinuses\storeRemPartyMinusesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewcontroller\Sklad\Container\controllerContainerCentral_OLD.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewcontroller\Sklad\Container\controllerContainerCentral.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\model\Sklad\Object\Dir\DirPaymentTypes\modelDirPaymentTypesGrid.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewcontroller\Sklad\Object\Doc\DocRetailReturns\viewcontrollerDocRetailReturns.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewcontroller\Sklad\Object\Doc\DocRetailReturns\viewcontrollerDocRetailReturnsEdit.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewcontroller\Sklad\Object\Doc\DocRetails\viewcontrollerDocRetailsEdit.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewcontroller\Sklad\Object\Doc\DocRetails\viewcontrollerDocRetails.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewcontroller\Sklad\Object\List\viewcontrollerListObjectPFs.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewcontroller\Sklad\Object\Report\viewcontrollerReportRetailCash.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\viewmodel\Sklad\Container\viewmodelContainerCentral.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Container\viewContainerCentral_OLD.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Container\viewContainerCentral.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Container\viewContainerCentralPanel.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Object\Doc\DocRetailReturns\viewDocRetailReturns.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Object\Doc\DocRetailReturns\viewDocRetailReturnsEdit.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Object\Doc\DocRetails\viewDocRetails.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Object\Doc\DocRetails\viewDocRetailsEdit.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Object\List\viewListObjectPFs.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Object\Report\viewReportRetailCash.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewComboBox.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewDateField.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewDirNomensEdit.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewDirServiceJobNomensEdit.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewDirServiceNomensEdit.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewGridDir.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewGridDirNomen.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewGridDoc.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewGridNoTBar.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewGridPF.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewGridRem.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewTreeCombo.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewTreeDir.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewTriggerDir.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewTriggerDirField.js" />
+    <Content Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Pattern\viewTriggerSearch.js" />
+    <Content Include="Text\OLD\Content\retail_MVVM\view\Sklad\Container\TreeListModel.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\app.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\controller\Sklad\Container\controllerContainerCentral.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Container\viewContainerCentral.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Container\viewContainerCentralPanel.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewComboBox.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewDateField.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewDirNomensEdit.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewDirServiceJobNomensEdit.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewDirServiceNomensEdit.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewGridDir.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewGridDirNomen.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewGridDoc.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewGridNoTBar.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewGridPF.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewGridRem.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewTreeCombo.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewTreeDir.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewTriggerDir.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewTriggerDirField.js" />
+    <Content Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Pattern\viewTriggerSearch.js" />
+    <Content Include="Text\OLD\Content\retail_MVVM\app.js" />
+    <Content Include="Text\OLD\Content\retail_MVVM\controller\Sklad\Container\TreeListController.js" />
+    <Content Include="Text\OLD\Content\retail_MVVM\view\Sklad\Container\TreeList.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\login\css\MyAdmPanel\animate_custom.css" />
+    <Content Include="Scripts\login\css\MyAdmPanel\gallery_blue.css" />
+    <Content Include="Scripts\login\css\MyAdmPanel\styles_basic.css" />
+    <Content Include="Scripts\login\css\MyAdmPanel\styles_table.css" />
+    <Content Include="Scripts\login\css\reset.css" />
+    <Content Include="Scripts\login\css\style.css" />
+    <Content Include="Scripts\login\js\index.js" />
+    <Content Include="Scripts\login\js\MyAdmPanel\blueimp-gallery.min.js" />
+    <Content Include="Scripts\login\js\MyAdmPanel\carousel.min.js" />
+    <Content Include="Scripts\login\js\MyAdmPanel\EditorOption.js" />
+    <Content Include="Scripts\login\js\MyAdmPanel\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\login\js\MyAdmPanel\jquery.min.js" />
+    <Content Include="Scripts\login\js\MyAdmPanel\scripts.js" />
+    <Content Include="Scripts\login\js\MyAdmPanel\wow.min.js" />
+    <Content Include="Scripts\login\logo\download.png" />
+    <Content Include="Scripts\login\logo\email.png" />
+    <Content Include="Scripts\login\logo\favicon.ico" />
+    <Content Include="Scripts\login\logo\ievdokimov-dmitriy-petrovich.jpg" />
+    <Content Include="Scripts\login\logo\logo_barcode.jpg" />
+    <Content Include="Scripts\login\logo\logo_barcode_mini.jpg" />
+    <Content Include="Scripts\login\logo\phone.png" />
+    <Content Include="Scripts\login\logo\skype.png" />
+    <Content Include="Scripts\sklad\css\change.css" />
+    <Content Include="Scripts\sklad\css\loader.css" />
+    <Content Include="Scripts\sklad\css\Report\style0.css" />
+    <Content Include="Scripts\sklad\css\Report\style1.css" />
+    <Content Include="Scripts\sklad\css\Report\style2.css" />
+    <Content Include="Scripts\sklad\css\styleReportPF.css" />
+    <Content Include="Scripts\sklad\images\about.png" />
+    <Content Include="Scripts\sklad\images\About32.png" />
+    <Content Include="Scripts\sklad\images\access_rights.png" />
+    <Content Include="Scripts\sklad\images\account.png" />
+    <Content Include="Scripts\sklad\images\account_type.png" />
+    <Content Include="Scripts\sklad\images\activation.png" />
+    <Content Include="Scripts\sklad\images\add.png" />
+    <Content Include="Scripts\sklad\images\addtonumbers.png" />
+    <Content Include="Scripts\sklad\images\Background\square.gif" />
+    <Content Include="Scripts\sklad\images\bank.png" />
+    <Content Include="Scripts\sklad\images\barcode16.png" />
+    <Content Include="Scripts\sklad\images\buy_16.png" />
+    <Content Include="Scripts\sklad\images\calculator.png" />
+    <Content Include="Scripts\sklad\images\cancel.png" />
+    <Content Include="Scripts\sklad\images\cashbox.png" />
+    <Content Include="Scripts\sklad\images\change.png" />
+    <Content Include="Scripts\sklad\images\char.png" />
+    <Content Include="Scripts\sklad\images\chart.png" />
+    <Content Include="Scripts\sklad\images\chart_accounts.png" />
+    <Content Include="Scripts\sklad\images\clear16.png" />
+    <Content Include="Scripts\sklad\images\clock16.png" />
+    <Content Include="Scripts\sklad\images\collapsible16.png" />
+    <Content Include="Scripts\sklad\images\collased.png" />
+    <Content Include="Scripts\sklad\images\color.png" />
+    <Content Include="Scripts\sklad\images\company16.png" />
+    <Content Include="Scripts\sklad\images\company32.png" />
+    <Content Include="Scripts\sklad\images\connect_16.png" />
+    <Content Include="Scripts\sklad\images\constants.png" />
+    <Content Include="Scripts\sklad\images\constants32.png" />
+    <Content Include="Scripts\sklad\images\contract.png" />
+    <Content Include="Scripts\sklad\images\control.png" />
+    <Content Include="Scripts\sklad\images\costitem.png" />
+    <Content Include="Scripts\sklad\images\currency.png" />
+    <Content Include="Scripts\sklad\images\dataexchange.png" />
+    <Content Include="Scripts\sklad\images\dataexchange_export.png" />
+    <Content Include="Scripts\sklad\images\dataexchange_imports.png" />
+    <Content Include="Scripts\sklad\images\del.gif" />
+    <Content Include="Scripts\sklad\images\del.png" />
+    <Content Include="Scripts\sklad\images\delete.png" />
+    <Content Include="Scripts\sklad\images\delete1.png" />
+    <Content Include="Scripts\sklad\images\department.png" />
+    <Content Include="Scripts\sklad\images\develop.png" />
+    <Content Include="Scripts\sklad\images\develop2.png" />
+    <Content Include="Scripts\sklad\images\directory.png" />
+    <Content Include="Scripts\sklad\images\Dir\bank16.png" />
+    <Content Include="Scripts\sklad\images\Dir\bankaccount16.png" />
+    <Content Include="Scripts\sklad\images\Dir\cashoffices16.png" />
+    <Content Include="Scripts\sklad\images\Dir\contractors16.png" />
+    <Content Include="Scripts\sklad\images\Dir\contracts16.png" />
+    <Content Include="Scripts\sklad\images\Dir\country16.png" />
+    <Content Include="Scripts\sklad\images\Dir\currency16.png" />
+    <Content Include="Scripts\sklad\images\Dir\department16.png" />
+    <Content Include="Scripts\sklad\images\Dir\discount16.png" />
+    <Content Include="Scripts\sklad\images\Dir\employees16.png" />
+    <Content Include="Scripts\sklad\images\Dir\employees32.png" />
+    <Content Include="Scripts\sklad\images\Dir\goods16.png" />
+    <Content Include="Scripts\sklad\images\Dir\material16.png" />
+    <Content Include="Scripts\sklad\images\Dir\money16.png" />
+    <Content Include="Scripts\sklad\images\Dir\pointsales16.png" />
+    <Content Include="Scripts\sklad\images\Dir\posts16.png" />
+    <Content Include="Scripts\sklad\images\Dir\season16.png" />
+    <Content Include="Scripts\sklad\images\Dir\sex16.png" />
+    <Content Include="Scripts\sklad\images\Dir\style16.png" />
+    <Content Include="Scripts\sklad\images\Dir\trade.png" />
+    <Content Include="Scripts\sklad\images\Dir\unitmeasure16.png" />
+    <Content Include="Scripts\sklad\images\Dir\vat16.png" />
+    <Content Include="Scripts\sklad\images\Dir\warehouses16.png" />
+    <Content Include="Scripts\sklad\images\disabled.png" />
+    <Content Include="Scripts\sklad\images\disp.png" />
+    <Content Include="Scripts\sklad\images\doc32.png" />
+    <Content Include="Scripts\sklad\images\document.png" />
+    <Content Include="Scripts\sklad\images\documents.png" />
+    <Content Include="Scripts\sklad\images\documents32.png" />
+    <Content Include="Scripts\sklad\images\doc_all.png" />
+    <Content Include="Scripts\sklad\images\doc_held.png" />
+    <Content Include="Scripts\sklad\images\doc_held_no.png" />
+    <Content Include="Scripts\sklad\images\doc_of.png" />
+    <Content Include="Scripts\sklad\images\doc_reserv.png" />
+    <Content Include="Scripts\sklad\images\edit.png" />
+    <Content Include="Scripts\sklad\images\excel.png" />
+    <Content Include="Scripts\sklad\images\excel16.png" />
+    <Content Include="Scripts\sklad\images\exit.png" />
+    <Content Include="Scripts\sklad\images\Exit32.png" />
+    <Content Include="Scripts\sklad\images\expand.png" />
+    <Content Include="Scripts\sklad\images\export.png" />
+    <Content Include="Scripts\sklad\images\filter.png" />
+    <Content Include="Scripts\sklad\images\find01.png" />
+    <Content Include="Scripts\sklad\images\Flag\az.png" />
+    <Content Include="Scripts\sklad\images\Flag\by.png" />
+    <Content Include="Scripts\sklad\images\Flag\cz.png" />
+    <Content Include="Scripts\sklad\images\Flag\de.png" />
+    <Content Include="Scripts\sklad\images\Flag\ee.png" />
+    <Content Include="Scripts\sklad\images\Flag\fr.png" />
+    <Content Include="Scripts\sklad\images\Flag\hu.png" />
+    <Content Include="Scripts\sklad\images\Flag\lt.png" />
+    <Content Include="Scripts\sklad\images\Flag\lv.png" />
+    <Content Include="Scripts\sklad\images\Flag\pl.png" />
+    <Content Include="Scripts\sklad\images\Flag\ro.png" />
+    <Content Include="Scripts\sklad\images\Flag\ru.png" />
+    <Content Include="Scripts\sklad\images\Flag\si.png" />
+    <Content Include="Scripts\sklad\images\Flag\sk.png" />
+    <Content Include="Scripts\sklad\images\Flag\ua.png" />
+    <Content Include="Scripts\sklad\images\Flag\us.png" />
+    <Content Include="Scripts\sklad\images\folder_add.png" />
+    <Content Include="Scripts\sklad\images\folder_delete.png" />
+    <Content Include="Scripts\sklad\images\folder_edit.png" />
+    <Content Include="Scripts\sklad\images\folder_go.png" />
+    <Content Include="Scripts\sklad\images\folder_link.png" />
+    <Content Include="Scripts\sklad\images\folder_page.png" />
+    <Content Include="Scripts\sklad\images\hand116.png" />
+    <Content Include="Scripts\sklad\images\help16.png" />
+    <Content Include="Scripts\sklad\images\history.png" />
+    <Content Include="Scripts\sklad\images\home.png" />
+    <Content Include="Scripts\sklad\images\html.png" />
+    <Content Include="Scripts\sklad\images\import.png" />
+    <Content Include="Scripts\sklad\images\info16.png" />
+    <Content Include="Scripts\sklad\images\Information.png" />
+    <Content Include="Scripts\sklad\images\instructions.png" />
+    <Content Include="Scripts\sklad\images\journal.png" />
+    <Content Include="Scripts\sklad\images\loader.gif" />
+    <Content Include="Scripts\sklad\images\load_16.png" />
+    <Content Include="Scripts\sklad\images\log.png" />
+    <Content Include="Scripts\sklad\images\Main\buy_48.png" />
+    <Content Include="Scripts\sklad\images\Main\cash_register_64.png" />
+    <Content Include="Scripts\sklad\images\Main\develop32.png" />
+    <Content Include="Scripts\sklad\images\Main\develop64.png" />
+    <Content Include="Scripts\sklad\images\Main\discount_1.png" />
+    <Content Include="Scripts\sklad\images\Main\home.png" />
+    <Content Include="Scripts\sklad\images\Main\manual32.png" />
+    <Content Include="Scripts\sklad\images\Main\message32.png" />
+    <Content Include="Scripts\sklad\images\Main\order.png" />
+    <Content Include="Scripts\sklad\images\Main\promt.gif" />
+    <Content Include="Scripts\sklad\images\Main\question.png" />
+    <Content Include="Scripts\sklad\images\Main\retail.png" />
+    <Content Include="Scripts\sklad\images\Main\sklad.png" />
+    <Content Include="Scripts\sklad\images\Dir\wallet16.png" />
+    <Content Include="Scripts\sklad\images\message16.png" />
+    <Content Include="Scripts\sklad\images\mobile_phone.png" />
+    <Content Include="Scripts\sklad\images\mobile_phone_arrow.png" />
+    <Content Include="Scripts\sklad\images\mobile_phone_exclamation_16.png" />
+    <Content Include="Scripts\sklad\images\mobile_phone_minus.png" />
+    <Content Include="Scripts\sklad\images\mobile_phone_pencil.png" />
+    <Content Include="Scripts\sklad\images\mobile_phone_plus.png" />
+    <Content Include="Scripts\sklad\images\modem.png" />
+    <Content Include="Scripts\sklad\images\money.png" />
+    <Content Include="Scripts\sklad\images\money_add.png" />
+    <Content Include="Scripts\sklad\images\money_delete.png" />
+    <Content Include="Scripts\sklad\images\money_dollar.png" />
+    <Content Include="Scripts\sklad\images\msword.png" />
+    <Content Include="Scripts\sklad\images\mydocs.png" />
+    <Content Include="Scripts\sklad\images\names.png" />
+    <Content Include="Scripts\sklad\images\new.png" />
+    <Content Include="Scripts\sklad\images\nomenclature.png" />
+    <Content Include="Scripts\sklad\images\NomerAdd.png" />
+    <Content Include="Scripts\sklad\images\notification.png" />
+    <Content Include="Scripts\sklad\images\number.png" />
+    <Content Include="Scripts\sklad\images\orders.png" />
+    <Content Include="Scripts\sklad\images\order_in.png" />
+    <Content Include="Scripts\sklad\images\parners.png" />
+    <Content Include="Scripts\sklad\images\payment.png" />
+    <Content Include="Scripts\sklad\images\percentage.png" />
+    <Content Include="Scripts\sklad\images\phone_plus.png" />
+    <Content Include="Scripts\sklad\images\podpis.png" />
+    <Content Include="Scripts\sklad\images\post.png" />
+    <Content Include="Scripts\sklad\images\Dir\Post\pochta-index.png" />
+    <Content Include="Scripts\sklad\images\Dir\Post\pochta-rossii-2.png" />
+    <Content Include="Scripts\sklad\images\Dir\Post\pochta-rossii.png" />
+    <Content Include="Scripts\sklad\images\print.png" />
+    <Content Include="Scripts\sklad\images\Reference.png" />
+    <Content Include="Scripts\sklad\images\refresh16.png" />
+    <Content Include="Scripts\sklad\images\repairs16.png" />
+    <Content Include="Scripts\sklad\images\report.png" />
+    <Content Include="Scripts\sklad\images\reports.png" />
+    <Content Include="Scripts\sklad\images\report_edit.png" />
+    <Content Include="Scripts\sklad\images\ru_default_no_foto.jpg" />
+    <Content Include="Scripts\sklad\images\save.png" />
+    <Content Include="Scripts\sklad\images\save_held.png" />
+    <Content Include="Scripts\sklad\images\screenshooter16.png" />
+    <Content Include="Scripts\sklad\images\secondhand16.png" />
+    <Content Include="Scripts\sklad\images\secondhand216.png" />
+    <Content Include="Scripts\sklad\images\send16.png" />
+    <Content Include="Scripts\sklad\images\services16.png" />
+    <Content Include="Scripts\sklad\images\settings.png" />
+    <Content Include="Scripts\sklad\images\settings32.png" />
+    <Content Include="Scripts\sklad\images\settings32_2.png" />
+    <Content Include="Scripts\sklad\images\shop_16.png" />
+    <Content Include="Scripts\sklad\images\size.png" />
+    <Content Include="Scripts\sklad\images\sms.png" />
+    <Content Include="Scripts\sklad\images\sms16.png" />
+    <Content Include="Scripts\sklad\images\sms2.png" />
+    <Content Include="Scripts\sklad\images\sort.png" />
+    <Content Include="Scripts\sklad\images\square.gif" />
+    <Content Include="Scripts\sklad\images\status16.png" />
+    <Content Include="Scripts\sklad\images\Status\11.png" />
+    <Content Include="Scripts\sklad\images\Status\12.png" />
+    <Content Include="Scripts\sklad\images\Status\13.png" />
+    <Content Include="Scripts\sklad\images\Status\14.png" />
+    <Content Include="Scripts\sklad\images\Status\15.png" />
+    <Content Include="Scripts\sklad\images\Status\agreeing24.png" />
+    <Content Include="Scripts\sklad\images\Status\exit24.png" />
+    <Content Include="Scripts\sklad\images\Status\input24.png" />
+    <Content Include="Scripts\sklad\images\Status\ok.png" />
+    <Content Include="Scripts\sklad\images\Status\onagreeing24.png" />
+    <Content Include="Scripts\sklad\images\Status\question24.png" />
+    <Content Include="Scripts\sklad\images\Status\remote_sc24.png" />
+    <Content Include="Scripts\sklad\images\Status\renouncement24.png" />
+    <Content Include="Scripts\sklad\images\Status\renovated24.png" />
+    <Content Include="Scripts\sklad\images\Status\sale.png" />
+    <Content Include="Scripts\sklad\images\Status\waiting24.png" />
+    <Content Include="Scripts\sklad\images\Status\work24.png" />
+    <Content Include="Scripts\sklad\images\table1.png" />
+    <Content Include="Scripts\sklad\images\table_add.png" />
+    <Content Include="Scripts\sklad\images\table_delete.png" />
+    <Content Include="Scripts\sklad\images\table_edit.png" />
+    <Content Include="Scripts\sklad\images\table_gen.png" />
+    <Content Include="Scripts\sklad\images\table_relation.png" />
+    <Content Include="Scripts\sklad\images\table_row_del.png" />
+    <Content Include="Scripts\sklad\images\table_row_ins.png" />
+    <Content Include="Scripts\sklad\images\TaxIncome.png" />
+    <Content Include="Scripts\sklad\images\texture.png" />
+    <Content Include="Scripts\sklad\images\text_list_bullets.png" />
+    <Content Include="Scripts\sklad\images\tools.png" />
+    <Content Include="Scripts\sklad\images\trash16.png" />
+    <Content Include="Scripts\sklad\images\unload_16.png" />
+    <Content Include="Scripts\sklad\images\up16.png" />
+    <Content Include="Scripts\sklad\images\users.png" />
+    <Content Include="Scripts\sklad\images\vat.png" />
+    <Content Include="Scripts\sklad\images\video16.png" />
+    <Content Include="Scripts\sklad\images\view_tree.png" />
+    <Content Include="Text\DocSecondHandPurchesController.txt" />
+    <Content Include="Text\DirServiceJobNomensSubGroup.txt" />
+    <Content Include="Text\Web.cong.txt" />
+    <Content Include="Text\6.Update.txt" />
+    <Content Include="Text\5.Тарифы.txt" />
+    <Content Include="Text\3.Сделать-долгосрочные.txt" />
+    <Content Include="Text\4.Даты.txt" />
+    <Content Include="Text\2.Сделано.txt" />
+    <Content Include="Text\1.Сделать.txt" />
+    <Content Include="Text\Help\1.Help_JavaScript.txt" />
+    <Content Include="Text\Help\DirContractorDiscount.txt" />
+    <Content Include="Text\Help\storeDirPriceTypesGrid.txt" />
+    <Content Include="Text\Help\1.Help_Project.txt" />
+    <Content Include="Text\Help\Розница.txt" />
+    <Content Include="Text\Help\RemParties.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\app\controller\Login\" />
+    <Folder Include="Content\app\controller\Sklad\Object\Main\" />
+    <Folder Include="Content\app\controller\Sklad\Other\" />
+    <Folder Include="Content\app\model\Login\" />
+    <Folder Include="Content\app\model\Sklad\Container\" />
+    <Folder Include="Content\app\model\Sklad\Other\" />
+    <Folder Include="Content\app\store\Login\" />
+    <Folder Include="Content\app\store\Sklad\Container\" />
+    <Folder Include="Content\app\store\Sklad\Other\" />
+    <Folder Include="Content\app\view\Login\" />
+    <Folder Include="Content\app\view\Sklad\Other\Form\" />
+    <Folder Include="Content\develop\controller\Login\" />
+    <Folder Include="Content\develop\model\Login\" />
+    <Folder Include="Content\develop\store\Login\" />
+    <Folder Include="Content\develop\view\Login\" />
+    <Folder Include="Content\other\Language\" />
+    <Folder Include="Controllers\Login\Dir\" />
+    <Folder Include="Controllers\Sklad\Main\" />
+    <Folder Include="Controllers\Sklad\Remnants\" />
+    <Folder Include="Scripts\login\css\MyAdmPanel\bootstrap\" />
+    <Folder Include="Text\OLD\Content\retail_MVC\model\" />
+    <Folder Include="Text\OLD\Content\retail_MVC\store\" />
+    <Folder Include="Text\OLD\Content\retail_MVC\view\Login\" />
+    <Folder Include="Text\OLD\Content\retail_MVC\view\Sklad\Object\" />
+    <Folder Include="Text\OLD\Content\retail_MVC\view\Sklad\Other\Form\" />
+    <Folder Include="Text\OLD\Content\retail_MVVM\model\" />
+    <Folder Include="Text\OLD\Content\retail_MVVM\store\" />
+    <Folder Include="Text\OLD\Content\retail_MVVM\view\Login\" />
+    <Folder Include="Text\OLD\Content\retail_MVVM\view\Sklad\Object\" />
+    <Folder Include="Text\OLD\Content\retail_NotWork\controller\" />
+    <Folder Include="Text\OLD\Content\retail_NotWork\view\Login\" />
+    <Folder Include="Text\OLD\Content\retail_NotWork\view\Sklad\Other\Form\" />
+    <Folder Include="UsersTemp\BackUp\" />
+    <Folder Include="UsersTemp\FileStock\" />
+    <Folder Include="UsersTemp\UserImage\" />
+    <Folder Include="Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Text\OLD\Content\retail_MVVM\sass\styleNav.scss" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\login\scss\style.scss" />
+    <Content Include="Views\_Shared\_LayoutIndex.cshtml" />
+    <Content Include="Views\_Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Report\ReportPF.cshtml" />
+    <Content Include="Views\Report\Report.cshtml" />
+    <Content Include="Views\Develop\Index.cshtml" />
+    <Content Include="Views\Develop\NoAccess.cshtml" />
+    <Content Include="Views\MyAdmPanel\Index.cshtml" />
+    <Content Include="Views\_Shared\_LayoutMyAdmPanel.cshtml" />
+    <Content Include="Views\MyAdmPanel\Remans.cshtml" />
+    <Content Include="Views\_Partial\_MenuMyAdmPanel.cshtml" />
+    <None Include="Properties\PublishProfiles\Сервисный центр.pubxml" />
+    <Content Include="Views\Account\Registration.cshtml" />
+    <Content Include="Views\Account\RegistrationSuccess.cshtml" />
+    <Content Include="Views\Account\RegConf.cshtml" />
+    <Content Include="Views\Account\PassRemind.cshtml" />
+    <Content Include="Views\Account\RegistrationUk.cshtml" />
+    <Content Include="Views\Account\RegistrationEn.cshtml" />
+    <Content Include="Views\_Shared\_LayoutIndexTriton.cshtml" />
+    <Content Include="Views\_Shared\_LayoutIndexNeptune.cshtml" />
+    <Content Include="Views\_Shared\_LayoutIndexNeptuneTouch.cshtml" />
+    <Content Include="Views\_Shared\_LayoutRetail.cshtml" />
+    <Content Include="Views\MyAdmPanel\Update.cshtml" />
+    <Content Include="Views\Test\KKMServer.cshtml" />
+    <Content Include="Views\_Partial\_MenuTest.cshtml" />
+    <Content Include="Views\_Shared\_LayoutTest.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\_Shared\_LayoutIndex_OLD.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50410</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50410/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

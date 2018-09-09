@@ -1,0 +1,10 @@
+﻿1. Есть 2-е переменные 
+   - varDirContractorIDOrg     - Организация из Настроек
+   - varDirContractorIDOrgEmpl - Организация из Сотрудников
+   если "varDirContractorIDOrgEmpl" == undefined, то в документах проставляем Организацию "varDirContractorIDOrg"
+   иначе "varDirContractorIDOrgEmpl"
+
+2. Сотрудник:
+   - Привязка к Складу
+   - Привязка к Организации
+   - Привязка только в Рознице!

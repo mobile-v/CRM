@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/Views/_Shared/_LayoutMyAdmPanel.cshtml";
+}
+
+
+<div id="events" class="container text-center">
+    <h1>Исправления ошибок</h1>
+
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <div class="row">
+                <!-- Ряд 1 -->
+                <div class="col-sm-12">
+                    <!-- Событие 1 -->
+                    
+                    <table class="table table-hover wow fadeInUp" style="visibility: hidden; -webkit-animation-name: none;" align="center">
+
+
+                        <tr>
+                            <td colspan="2"><center>RemParties - RemPartyMinuses</center></td>
+                            <td colspan="2"><center>RemParties - RemRemnants</center></td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+                                        @using (Html.BeginForm("RemPartiesCheck", "MyAdmPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                        {
+                                            <button type="submit" name="btnCheck1" id="btnCheck1" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                                <span>Проверить остатки</span>
+                                            </button>
+                                        }
+                                    </div>
+                                </center>
+                            </td>
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+                                        @using (Html.BeginForm("RemPartiesCorrect", "MyAdmPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                        {
+                                            <button type="submit" name="btnCheck2" id="btnCheck2" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                                <span>Исправить остатки</span>
+                                            </button>
+                                        }
+                                    </div>
+                                </center>
+                            </td>
+
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+                                        @using (Html.BeginForm("RemRemnantsCheck", "MyAdmPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                        {
+                                            <button type="submit" name="btnCheck3" id="btnCheck3" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                                <span>Проверить остатки</span>
+                                            </button>
+                                        }
+                                    </div>
+                                </center>
+                            </td>
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+                                        @using (Html.BeginForm("RemRemnantsCorrect", "MyAdmPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                        {
+                                            <button type="submit" name="btnCheck4" id="btnCheck4" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                                <span>Исправить остатки</span>
+                                            </button>
+                                        }
+                                    </div>
+                                </center>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                    <span style="font-size:14px; color: black;"> @(new HtmlString((string)ViewData["MsgBlack"])) </span>
+                    <span style="font-size:14px; color: red;"> @ViewData["MsgRed"] </span>
+
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end col -->
+    </div><!-- end row -->
+</div><!-- end container -->

@@ -1,0 +1,1 @@
+﻿"storeDirPriceTypesGrid" грузить в Variables один раз при заходе в сервис!

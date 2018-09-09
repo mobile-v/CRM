@@ -1,0 +1,42 @@
+﻿1. debugger; - Точка останова
+2. encodeURIComponent("...") - корректная передача всех символов (+, -, ...)
+3. labelAlign : 'top',
+
+4. ComboBox: Вложенные КомбоБоксы
+   Реализовано в файле: H:\ProjectsNET\Web2013\PartionnyAccount\PartionnyAccount\Content\app\controller\Sklad\Object\Doc\DocOrderInts\controllerDocOrderIntsEdit
+   Реализовано сложно и жерез ЖОПУ!
+   Проблема: не передаётся параметр из вне " storeDirNomensGrid2.on('load', function () {"
+   Решение: Присвоить "storeDirNomensGrid2" этот параметр: "storeDirNomensGrid2.arr = arr;" (где "arr" - параметр, который надо передавать дальше)
+
+5. Активная вкладка Tab:
+        var activeTab = Ext.getCmp("tab_" + id).getActiveTab();
+        if (activeTab.itemId == "PanelGrid9_") {
+
+6.  margin: "X1 X2 X3 X4",
+    //X1 - верх
+    //X2 - право
+    //X3 - низ
+    //X4 - лево
+
+
+7. Get form field by name (ExtJS получить элемент на форме)
+var value = Ext.get(''MyForm").getForm().findField("NameField").getValue();
+ or
+var value = MyForm.getForm().findField("NameField").getValue(); // if MyForm is an valid ext Form object
+
+8.
+    //Add these values dynamically so they aren't hard-coded in the html
+    Ext.fly('info').dom.value = Ext.MessageBox.INFO;
+    Ext.fly('question').dom.value = Ext.MessageBox.QUESTION;
+    Ext.fly('warning').dom.value = Ext.MessageBox.WARNING;
+    Ext.fly('error').dom.value = Ext.MessageBox.ERROR;
+
+9. if Message
+Ext.Msg.confirm("Confirmation", "Do you want to Save changes?", function(btnText){
+                if(btnText === "no"){
+                    Ext.Msg.alert("Alert", "You have confirmed 'No'.");
+                }
+                else if(btnText === "yes"){
+                    Ext.Msg.alert("Alert", "You have confirmed 'Yes'.");
+                }
+            }, this);

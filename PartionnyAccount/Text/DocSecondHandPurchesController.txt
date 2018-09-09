@@ -1,0 +1,706 @@
+﻿            #region Разбор
+
+            if (DirSecondHandStatusID_OLD == 12 && DirSecondHandStatusID == 13)
+            {
+                //Готов (2-я вкладка)
+                //Проверяем есть ли запчасти
+                int iCount = await db.DocSecondHandRazbor2Tabs.Where(x => x.DocSecondHandPurchID == DocSecondHandPurchID).CountAsync();
+                if (iCount == 0)
+                {
+                    throw new System.InvalidOperationException("Для статуса готов, должна присутствовать в списке запчастей, хотя бы одна запчасть!");
+                }
+            }
+            else if (DirSecondHandStatusID_OLD == 13 && DirSecondHandStatusID == 14)
+            {
+                //В продажу (запчасти) (в архив)
+
+                #region В Продажу (Пратии)
+
+                #region 1. Проверки: ...
+                //1. Проверки:
+                //   Если статус DirSecondHandStatusID_OLD == 7 && docSecondHandRazbor.DirSecondHandStatusID == 9
+                //   тогда проверяем, если есть в таб части запчасти и есть продажные цены, то проводим документы
+                //2. Проведение документа: 
+                //   сам аппарат списываем на Склад Списания (найти его по Sub-складу)
+                //   запчасти приходуем на Основй Склад (найти его по Sub-складу)
+
+                //   Если статус DirSecondHandStatusID_OLD == 7 && docSecondHandRazbor.DirSecondHandStatusID == 9
+                //   тогда проверяем, если есть в таб части запчасти и есть продажные цены, то проводим документы
+
+                var docSecondHandRazborTabCollection = await db.DocSecondHandRazbor2Tabs.Where(x => x.DocSecondHandPurchID == DocSecondHandPurchID).ToListAsync();
+                if (docSecondHandRazborTabCollection.Count() > 0)
+                {
+                    //Проверяем цены
+                    for (int i = 0; i < docSecondHandRazborTabCollection.Count(); i++)
+                    {
+                        var qX = docSecondHandRazborTabCollection[i];
+
+                        //1. К-во
+                        if (qX.Quantity <= 0) { throw new System.InvalidOperationException(Classes.Language.Sklad.Language.msg133_1); }
+
+                        //1. Приходная цена > Продажных
+                        if (qX.PriceVAT < 0 || qX.PriceVAT > qX.PriceRetailVAT || qX.PriceVAT > qX.PriceWholesaleVAT || qX.PriceVAT > qX.PriceIMVAT) { throw new System.InvalidOperationException(Classes.Language.Sklad.Language.msg133_2); }
+                    }
+                }
+                else { throw new System.InvalidOperationException(Classes.Language.Sklad.Language.msg133_3); }
+
+                #endregion
+
+
+                #region 2. Проведение документа: 
+
+                #region Doc
+
+                Models.Sklad.Doc.Doc doc = await db.Docs.FindAsync(docSecondHandPurch.DocID);
+                doc.Held = true;
+                db.Entry(doc).State = EntityState.Modified;
+                await Task.Run(() => db.SaveChangesAsync());
+
+                #endregion
+
+
+                #region Приходуем запчасти: RemParty - Партии
+
+                //Находим табличную часть (запчасти)
+
+                Models.Sklad.Rem.RemParty[] remPartyCollection = new Models.Sklad.Rem.RemParty[docSecondHandRazborTabCollection.Count()];
+                for (int i = 0; i < docSecondHandRazborTabCollection.Count(); i++)
+                {
+                    Models.Sklad.Rem.RemParty remParty = new Models.Sklad.Rem.RemParty();
+                    remParty.RemPartyID = null;
+                    remParty.DirNomenID = Convert.ToInt32(docSecondHandRazborTabCollection[i].DirNomenID);
+                    remParty.Quantity = docSecondHandRazborTabCollection[i].Quantity;
+                    remParty.Remnant = docSecondHandRazborTabCollection[i].Quantity;
+                    remParty.DirCurrencyID = docSecondHandRazborTabCollection[i].DirCurrencyID;
+                    //remParty.DirCurrencyMultiplicity = docSecondHandRazborTabCollection[i].DirCurrencyMultiplicity;
+                    //remParty.DirCurrencyRate = docSecondHandRazborTabCollection[i].DirCurrencyRate;
+                    remParty.DirVatValue = 0; // docPurch.DirVatValue;
+                    remParty.DirWarehouseID = docSecondHandPurch.DirWarehouseID; // docPurch.DirWarehouseID;
+                    remParty.DirWarehouseIDDebit = docSecondHandPurch.DirWarehouseID; // docPurch.DirWarehouseID;
+                    remParty.DirWarehouseIDPurch = docSecondHandPurch.DirWarehouseID; // docPurch.DirWarehouseID;
+                    remParty.DirContractorIDOrg = docSecondHandPurch.doc.DirContractorIDOrg;
+
+                    //!!! Важно !!!
+                    //if (docSecondHandRazborTabCollection[i].DirContractorID != null) remParty.DirContractorID = Convert.ToInt32(docSecondHandRazborTabCollection[i].DirContractorID);
+                    //else remParty.DirContractorID = docSecondHandRazbor.DirContractorID;
+                    remParty.DirContractorID = docSecondHandPurch.doc.DirContractorIDOrg;
+                    //!!! Важно !!!
+
+                    //Дата Приёмки товара
+                    remParty.DocDatePurches = docSecondHandPurch.doc.DocDate;
+
+                    remParty.DirCharColourID = docSecondHandRazborTabCollection[i].DirCharColourID;
+                    remParty.DirCharMaterialID = docSecondHandRazborTabCollection[i].DirCharMaterialID;
+                    remParty.DirCharNameID = docSecondHandRazborTabCollection[i].DirCharNameID;
+                    remParty.DirCharSeasonID = docSecondHandRazborTabCollection[i].DirCharSeasonID;
+                    remParty.DirCharSexID = docSecondHandRazborTabCollection[i].DirCharSexID;
+                    remParty.DirCharSizeID = docSecondHandRazborTabCollection[i].DirCharSizeID;
+                    remParty.DirCharStyleID = docSecondHandRazborTabCollection[i].DirCharStyleID;
+                    remParty.DirCharTextureID = docSecondHandRazborTabCollection[i].DirCharTextureID;
+
+                    remParty.SerialNumber = docSecondHandRazborTabCollection[i].SerialNumber;
+                    remParty.Barcode = docSecondHandRazborTabCollection[i].Barcode;
+
+                    remParty.DocID = Convert.ToInt32(docSecondHandPurch.DocID);
+                    remParty.PriceCurrency = docSecondHandRazborTabCollection[i].PriceCurrency;
+                    remParty.PriceVAT = docSecondHandRazborTabCollection[i].PriceVAT;
+                    remParty.FieldID = Convert.ToInt32(docSecondHandRazborTabCollection[i].DocSecondHandRazbor2TabID);
+
+                    remParty.PriceRetailVAT = docSecondHandRazborTabCollection[i].PriceRetailVAT;
+                    remParty.PriceRetailCurrency = docSecondHandRazborTabCollection[i].PriceRetailCurrency;
+                    remParty.PriceWholesaleVAT = docSecondHandRazborTabCollection[i].PriceWholesaleVAT;
+                    remParty.PriceWholesaleCurrency = docSecondHandRazborTabCollection[i].PriceWholesaleCurrency;
+                    remParty.PriceIMVAT = docSecondHandRazborTabCollection[i].PriceIMVAT;
+                    remParty.PriceIMCurrency = docSecondHandRazborTabCollection[i].PriceIMCurrency;
+
+                    //DirNomenMinimumBalance
+                    remParty.DirNomenMinimumBalance = sysSetting.DirNomenMinimumBalance;
+
+                    remParty.DirEmployeeID = doc.DirEmployeeID;
+                    remParty.DocDate = doc.DocDate;
+
+                    remPartyCollection[i] = remParty;
+                }
+
+                Controllers.Sklad.Rem.RemPartiesController remPartys = new Rem.RemPartiesController();
+                await Task.Run(() => remPartys.Save(db, remPartyCollection)); //remPartys.Save(db, remPartyCollection);
+
+                #endregion
+
+                #endregion
+
+                #endregion
+
+            }
+            else if (DirSecondHandStatusID_OLD == 14 && DirSecondHandStatusID == 12)
+            {
+                //Вернули с архива на доработку
+
+                //1. Проверяем: есть ли списания с партий запчастей
+                //docSecondHandPurch.DocID
+                var remPartyCollection = await db.RemParties.Where(x => x.DocID == docSecondHandPurch.DocID).ToListAsync();
+                if (remPartyCollection.Count() > 0)
+                {
+                    //Проверяем цены
+                    for (int i = 0; i < remPartyCollection.Count(); i++)
+                    {
+                        var qX = remPartyCollection[i];
+
+                        //1. К-во
+                        if (qX.Remnant != qX.Quantity) { throw new System.InvalidOperationException("Одна из запчастей уже продана! Запчасть: " + qX.DirNomenID); }
+                    }
+                }
+
+                //2. Удаляем все партии
+                //Удаляем записи в таблице "RemParties"
+                SQLiteParameter parDocID = new SQLiteParameter("@DocID", System.Data.DbType.Int32) { Value = docSecondHandPurch.DocID };
+                await db.Database.ExecuteSqlCommandAsync("DELETE FROM RemParties WHERE DocID=@DocID; ", parDocID);
+            }
+
+            #endregion
+
+
+
+            #region OLD
+
+            //!!! Не используется !!!
+            //2. Продажа *** *** ***
+            #region 2. "На продажу" и "Вернули с продажи"
+
+
+            //Партии2: "На продажу"
+            if (
+                DirSecondHandStatusID_OLD == 7 && docSecondHandPurch.DirSecondHandStatusID == 9 &&
+                docSecondHandPurch.PriceRetailVAT > 0 && docSecondHandPurch.PriceWholesaleVAT > 0 && docSecondHandPurch.PriceIMVAT > 0
+              )
+            {
+                //Не используется
+                #region Партии2: Переместили на продажу
+
+
+                #region Sum для PriceCurrency, PriceVAT
+
+                /*
+
+                var sDocSecondHandPurch1Tabs_PriceVAT =
+                    (
+                        from x in db.DocSecondHandPurch1Tabs
+                        where x.DocSecondHandPurchID == DocSecondHandPurchID
+                        select x.PriceVAT
+                    ).DefaultIfEmpty(0).Sum();
+
+                var sDocSecondHandPurch1Tabs_PriceCurrency =
+                    (
+                        from x in db.DocSecondHandPurch1Tabs
+                        where x.DocSecondHandPurchID == DocSecondHandPurchID
+                        select x.PriceCurrency
+                    ).DefaultIfEmpty(0).Sum();
+
+
+
+                var sDocSecondHandPurch2Tabs_PriceVAT =
+                    (
+                        from x in db.DocSecondHandPurch2Tabs
+                        where x.DocSecondHandPurchID == DocSecondHandPurchID
+                        select x.PriceVAT
+                    ).DefaultIfEmpty(0).Sum();
+
+                var sDocSecondHandPurch2Tabs_PriceCurrency =
+                    (
+                        from x in db.DocSecondHandPurch2Tabs
+                        where x.DocSecondHandPurchID == DocSecondHandPurchID
+                        select x.PriceCurrency
+                    ).DefaultIfEmpty(0).Sum();
+
+                */
+
+                #endregion
+
+
+                #region Rem2Party - Партии
+
+                /*
+
+                //Doc
+                Models.Sklad.Doc.Doc doc = await db.Docs.FindAsync(docSecondHandPurch.DocID);
+                doc.Held = true;
+                db.Entry(doc).State = EntityState.Modified;
+                await Task.Run(() => db.SaveChangesAsync());
+
+                Models.Sklad.Rem.Rem2Party[] rem2PartyCollection = new Models.Sklad.Rem.Rem2Party[1];
+
+                Models.Sklad.Rem.Rem2Party rem2Party = new Models.Sklad.Rem.Rem2Party();
+                rem2Party.Rem2PartyID = null;
+                rem2Party.DirServiceNomenID = docSecondHandPurch.DirServiceNomenID;
+                rem2Party.Quantity = 1; // docSecondHandPurch.Quantity;
+                rem2Party.Remnant = 1; // docSecondHandPurch.Quantity;
+                rem2Party.DirCurrencyID = docSecondHandPurch.DirCurrencyID;
+                //rem2Party.DirCurrencyMultiplicity = docSecondHandPurch.DirCurrencyMultiplicity;
+                //rem2Party.DirCurrencyRate = docSecondHandPurch.DirCurrencyRate;
+                rem2Party.DirVatValue = docSecondHandPurch.DirVatValue;
+                rem2Party.DirWarehouseID = docSecondHandPurch.DirWarehouseID;
+                rem2Party.DirWarehouseIDDebit = docSecondHandPurch.DirWarehouseID;
+                rem2Party.DirWarehouseIDPurch = docSecondHandPurch.DirWarehouseID;
+                rem2Party.DirContractorIDOrg = doc.DirContractorIDOrg;
+
+                //!!! Важно !!!
+                if (docSecondHandPurch.DirContractorID != null) rem2Party.DirServiceContractorID = Convert.ToInt32(docSecondHandPurch.DirServiceContractorID);
+                else rem2Party.DirServiceContractorID = Convert.ToInt32(docSecondHandPurch.DirServiceContractorID);
+                //!!! Важно !!!
+
+                //Дата Приёмки товара
+                rem2Party.DocDatePurches = docSecondHandPurch.doc.DocDate;
+
+                rem2Party.SerialNumber = docSecondHandPurch.SerialNumber;
+                rem2Party.Barcode = ""; //docSecondHandPurch.Barcode;
+
+                rem2Party.DocID = Convert.ToInt32(docSecondHandPurch.DocID);
+
+                //!!! Не правильно !!! 
+                //Надо подсчитать со всех таблиц суммы
+                rem2Party.PriceCurrency = docSecondHandPurch.PriceVAT + sDocSecondHandPurch1Tabs_PriceVAT + sDocSecondHandPurch2Tabs_PriceVAT;
+                rem2Party.PriceVAT = docSecondHandPurch.PriceVAT + sDocSecondHandPurch1Tabs_PriceCurrency + sDocSecondHandPurch2Tabs_PriceCurrency;
+
+
+                rem2Party.FieldID = Convert.ToInt32(docSecondHandPurch.DocSecondHandPurchID);
+
+                rem2Party.PriceRetailVAT = Convert.ToDouble(docSecondHandPurch.PriceRetailVAT);
+                rem2Party.PriceRetailCurrency = Convert.ToDouble(docSecondHandPurch.PriceRetailCurrency);
+                rem2Party.PriceWholesaleVAT = Convert.ToDouble(docSecondHandPurch.PriceWholesaleVAT);
+                rem2Party.PriceWholesaleCurrency = Convert.ToDouble(docSecondHandPurch.PriceWholesaleCurrency);
+                rem2Party.PriceIMVAT = Convert.ToDouble(docSecondHandPurch.PriceIMVAT);
+                rem2Party.PriceIMCurrency = Convert.ToDouble(docSecondHandPurch.PriceIMCurrency);
+
+                //DirNomenMinimumBalance
+                rem2Party.DirNomenMinimumBalance = sysSetting.DirNomenMinimumBalance;
+
+                rem2Party.DirEmployeeID = doc.DirEmployeeID;
+                rem2Party.DocDate = doc.DocDate;
+
+                //Документ создания первой партии (создания документа)
+                //Нужен для правильно подсчёта партии
+                rem2Party.DocIDFirst = doc.DocID;
+
+                rem2PartyCollection[0] = rem2Party;
+
+
+                Controllers.Sklad.Rem.Rem2PartiesController rem2Partys = new Rem.Rem2PartiesController();
+                await Task.Run(() => rem2Partys.Save(db, rem2PartyCollection)); //rem2Partys.Save(db, rem2PartyCollection);
+
+                */
+
+                #endregion
+
+
+                #endregion
+            }
+
+            else
+
+            //Партии2: "Вернули с продажи"
+            if (
+                DirSecondHandStatusID_OLD == 9 && docSecondHandPurch.DirSecondHandStatusID == 2 && docSecondHandPurch.DirSecondHandStatusID_789 != 8 &&
+                docSecondHandPurch.PriceRetailVAT != null && docSecondHandPurch.PriceWholesaleVAT != null && docSecondHandPurch.PriceIMVAT != null
+              )
+            {
+                //Не используется
+                #region Партии2Минус: Вернули с продажи (кроме Разбора)
+
+                /*
+
+                #region 1. Проверка: Было ли списание с партий *** *** *** *** *** *** *** *** *** ***
+
+                //int DocSecondHandPurchID = Convert.ToInt32(docSecondHandPurch.DocSecondHandPurchID);
+
+                //Получаем DocSecondHandPurch из БД, потому, что могли изменить у Клиента
+                Models.Sklad.Doc.DocSecondHandPurch _docSecondHandPurch = db.DocSecondHandPurches.Find(DocSecondHandPurchID);
+                int? iDocSecondHandPurch_DocID = _docSecondHandPurch.DocID;
+
+                Classes.Function.WriteOffGoodsWithParty2 writeOffGoodsWithParty2 = new Classes.Function.WriteOffGoodsWithParty2();
+                bool bWriteOffGoodsWithParty = await Task.Run(() => writeOffGoodsWithParty2.Exist(db, iDocSecondHandPurch_DocID));
+
+                #endregion
+
+
+                //Удаление записей в таблицах: Rem2Parties
+                #region 1. Rem2Parties - удаление *** *** *** *** *** *** *** *** *** ***
+
+                //Проверяем если ли расходы (проведённый или НЕ проведенные)
+
+
+                //Удаляем записи в таблице "Rem2Parties"
+                SQLiteParameter parDocID = new SQLiteParameter("@DocID", System.Data.DbType.Int32) { Value = docSecondHandPurch.DocID };
+                await db.Database.ExecuteSqlCommandAsync("DELETE FROM Rem2Parties WHERE DocID=@DocID; ", parDocID);
+
+                #endregion
+
+                //Doc.Held = false
+                #region 2. Doc *** *** *** *** *** *** *** *** *** ***
+
+                Models.Sklad.Doc.Doc doc = db.Docs.Find(docSecondHandPurch.DocID);
+                doc.Held = false;
+
+                Docs.Docs docs = new Docs.Docs(db, dbRead, doc, EntityState.Modified);
+                await Task.Run(() => docs.Save()); //docs.Save();
+
+                #endregion
+
+                */
+
+                #endregion
+            }
+
+
+            #endregion
+
+
+            else
+
+
+            //!!! Не используется !!!
+            //3. Разбор *** *** ***
+            #region 3. "На Разбор" и "Вернули с Разбора"
+
+
+            if (DirSecondHandStatusID_OLD == 8 && docSecondHandPurch.DirSecondHandStatusID == 9)
+            {
+                #region На Разбор
+
+                /*
+
+                #region docSecondHandPurch
+
+                //Doc.Held = false
+                #region 2. Doc *** *** *** *** *** *** *** *** *** ***
+
+                Models.Sklad.Doc.Doc doc = db.Docs.Find(docSecondHandPurch.DocID);
+                doc.Held = false;
+
+                Docs.Docs docs = new Docs.Docs(db, dbRead, doc, EntityState.Modified);
+                await Task.Run(() => docs.Save()); //docs.Save();
+
+                #endregion
+
+                #endregion
+
+
+                #region Находим ...
+
+                #region 1. Находим по Складу "ХХХ" - "ХХХ БУ.Разбор"
+
+                int?
+                    iDirWarehouseID = docSecondHandPurch.DirWarehouseID,
+                    iDirWarehouseIDSub = 0;
+                var queryWarehouseSum = await
+                    (
+                        from x in db.DirWarehouses
+                        where x.Sub == iDirWarehouseID && x.DirWarehouseLoc == 5
+                        select x
+                    ).ToListAsync();
+                if (queryWarehouseSum.Count() > 0)
+                {
+                    iDirWarehouseIDSub = queryWarehouseSum[0].DirWarehouseID;
+                }
+
+                #endregion
+
+                #region DocIDFirst: Нужен для правильно подсчёта партии + DirServiceContractorID
+
+                //Получаем "DocID" из списуемой партии "docSecondHandPurch.DocID" для "DocIDFirst"
+                //Models.Sklad.Rem.Rem2Party _Rem2Party = await db.Rem2Parties.FindAsync(docSecondHandPurch.Rem2PartyID);
+
+                #endregion
+
+                #endregion
+
+
+                #region Перемещаем (в данном случае только оприходование) на склад: БУ.Разбор
+
+                //2. На него перемещаем аппарат:
+                //   2.1. Создаём новый документ "Разборка" на складе "ХХХ БУ.Разбор"
+                //   2.2. Табличная часть содержит все аппараты со статусом "Exist == 3"
+                //   2.3. Партии:
+                //        2.3.2 Оприходываем Rem2Parties
+
+                #region Doc
+
+                //Модель
+                Models.Sklad.Doc.Doc doc2 = new Models.Sklad.Doc.Doc();
+                //Присваиваем значения
+                doc2.ListObjectID = 77;
+                doc2.IsImport = false;
+                doc2.NumberInt = "0"; //docSecondHandPurch.NumberInt;
+                doc2.NumberReal = 0; //docSecondHandPurch.DocSecondHandInventoryID;
+                doc2.DirEmployeeID = field.DirEmployeeID;
+                //doc2.DirPaymentTypeID = 1; // docSecondHandPurch.DirPaymentTypeID;
+                doc2.Payment = 0;
+                doc2.DirContractorID = doc.DirContractorIDOrg;
+                doc2.DirContractorIDOrg = doc.DirContractorIDOrg;
+                doc2.Discount = 0;
+                doc2.DirVatValue = doc.DirVatValue;
+                doc2.Base = "Создано на основании ППП №" + docSecondHandPurch.DocSecondHandPurchID;
+                doc2.Description = "";
+                doc2.DocDate = DateTime.Now;
+                doc2.Held = false;
+                doc2.DocID = null; //docSecondHandPurch.DocID;
+                doc2.DocIDBase = doc.DocID; //docSecondHandPurch.DocIDBase;
+
+                //Класс
+                Docs.Docs docs2 = new Docs.Docs(db, dbRead, doc2, EntityState.Added);
+                //doc = await docs2.Save();
+                await Task.Run(() => docs2.Save());
+
+                //Нужно вернуть "docSecondHandPurch" со всем полями!
+                int? iDocID2 = doc2.DocID;
+
+                #endregion
+
+                #region DocSecondHandRazbor
+
+                Models.Sklad.Doc.DocSecondHandRazbor docSecondHandRazbor = new DocSecondHandRazbor();
+                docSecondHandRazbor.DocSecondHandRazborID = null;
+                docSecondHandRazbor.DocID = iDocID2;
+                docSecondHandRazbor.DocIDFrom = doc.DocID;
+
+                //ListObjects.ListObjectID - тип документа: БУ(65, 76) или СЦ(40)
+                docSecondHandRazbor.ListObjectIDFromType = 65;
+                //Docs.DocID - по DocID можно вычислить ID-шник документа 'Docs.NumberReal'
+                docSecondHandRazbor.DocIDFromType = doc.DocID; //_Rem2Party.DocIDFirst; //Найти из Партии2 DocIDFirst !!!
+
+                docSecondHandRazbor.DirWarehouseID = Convert.ToInt32(iDirWarehouseIDSub);
+                docSecondHandRazbor.DirServiceNomenID = docSecondHandPurch.DirServiceNomenID;
+                docSecondHandRazbor.DirSecondHandStatusID = 2;
+                docSecondHandRazbor.DirSecondHandStatusID_789 = null;
+
+                docSecondHandRazbor.PriceVAT = docSecondHandPurch.PriceVAT;
+                docSecondHandRazbor.PriceCurrency = docSecondHandPurch.PriceCurrency;
+                docSecondHandRazbor.DirCurrencyID = docSecondHandPurch.DirCurrencyID;
+                docSecondHandRazbor.DirCurrencyRate = docSecondHandPurch.DirCurrencyRate;
+                docSecondHandRazbor.DirCurrencyMultiplicity = docSecondHandPurch.DirCurrencyMultiplicity;
+                docSecondHandRazbor.DirEmployeeIDMaster = field.DirEmployeeID;
+                docSecondHandRazbor.DateStatusChange = null;
+
+                docSecondHandRazbor.Rem2PartyID = null; //docSecondHandPurch.Rem2PartyID;
+
+
+                db.Entry(docSecondHandRazbor).State = EntityState.Added;
+                await db.SaveChangesAsync();
+
+
+                #region 2.1. Update: NumberInt and NumberReal, если INSERT *** *** *** *** ***
+
+                doc2.NumberInt = docSecondHandRazbor.DocSecondHandRazborID.ToString();
+                doc2.NumberReal = docSecondHandRazbor.DocSecondHandRazborID;
+                docs2 = new Docs.Docs(db, dbRead, doc2, EntityState.Modified);
+                await Task.Run(() => docs2.Save());
+
+                #endregion
+
+                #endregion
+
+
+                #region Оприходываем Rem2Parties
+
+                //docSecondHandPurch.Rem2PartyID
+
+                Models.Sklad.Rem.Rem2Party rem2Party2 = new Models.Sklad.Rem.Rem2Party();
+                rem2Party2.Rem2PartyID = null;
+                rem2Party2.DirServiceNomenID = docSecondHandPurch.DirServiceNomenID;
+                rem2Party2.Quantity = 1; // docSecondHandPurch.Quantity;
+                rem2Party2.Remnant = 1; // docSecondHandPurch.Quantity;
+                rem2Party2.DirCurrencyID = docSecondHandPurch.DirCurrencyID;
+                //rem2Party2.DirCurrencyMultiplicity = docSecondHandPurch.DirCurrencyMultiplicity;
+                //rem2Party2.DirCurrencyRate = docSecondHandPurch.DirCurrencyRate;
+                rem2Party2.DirVatValue = doc2.DirVatValue;
+                rem2Party2.DirWarehouseID = Convert.ToInt32(iDirWarehouseIDSub);
+                rem2Party2.DirWarehouseIDDebit = Convert.ToInt32(iDirWarehouseID);
+                rem2Party2.DirWarehouseIDPurch = Convert.ToInt32(iDirWarehouseIDSub); //_Rem2Party.DirWarehouseIDPurch;
+                rem2Party2.DirContractorIDOrg = doc2.DirContractorIDOrg;
+
+                //!!! Важно !!!
+                rem2Party2.DirServiceContractorID = Convert.ToInt32(docSecondHandPurch.DirServiceContractorID); //_Rem2Party.DirServiceContractorID;
+                //!!! Важно !!!
+
+                //Дата Приёмки товара
+                rem2Party2.DocDatePurches = doc.DocDate;
+
+                rem2Party2.SerialNumber = ""; // docSecondHandPurch.SerialNumber;
+                rem2Party2.Barcode = ""; //docSecondHandPurch.Barcode;
+
+                rem2Party2.DocID = Convert.ToInt32(doc2.DocID);
+
+                //!!! Не правильно !!! 
+                //Надо подсчитать со всех таблиц суммы
+                rem2Party2.PriceVAT = docSecondHandPurch.PriceVAT;
+                rem2Party2.PriceCurrency = Convert.ToDouble(docSecondHandPurch.PriceCurrency);
+
+
+                rem2Party2.FieldID = Convert.ToInt32(docSecondHandRazbor.DocSecondHandRazborID);
+
+                rem2Party2.PriceRetailVAT = docSecondHandPurch.PriceVAT;
+                rem2Party2.PriceRetailCurrency = Convert.ToDouble(docSecondHandPurch.PriceCurrency);
+                rem2Party2.PriceWholesaleVAT = docSecondHandPurch.PriceVAT;
+                rem2Party2.PriceWholesaleCurrency = Convert.ToDouble(docSecondHandPurch.PriceCurrency);
+                rem2Party2.PriceIMVAT = docSecondHandPurch.PriceVAT;
+                rem2Party2.PriceIMCurrency = Convert.ToDouble(docSecondHandPurch.PriceCurrency);
+
+                //DirNomenMinimumBalance
+                rem2Party2.DirNomenMinimumBalance = 0;
+
+                rem2Party2.DirEmployeeID = doc.DirEmployeeID;
+                rem2Party2.DocDate = doc.DocDate;
+
+                //Документ создания первой партии (создания документа)
+                //Нужен для правильно подсчёта партии
+                rem2Party2.DocIDFirst = doc.DocID; //_Rem2Party.DocIDFirst;
+
+                Models.Sklad.Rem.Rem2Party[] rem2PartyCollection = new Models.Sklad.Rem.Rem2Party[1];
+                rem2PartyCollection[0] = rem2Party2;
+
+
+                Controllers.Sklad.Rem.Rem2PartiesController rem2Partys = new Rem.Rem2PartiesController();
+                await Task.Run(() => rem2Partys.Save(db, rem2PartyCollection)); //rem2Partys.Save(db, rem2PartyCollection);
+
+                #endregion
+
+                #endregion
+
+                */
+
+                #endregion
+            }
+            //else if (DirSecondHandStatusID_OLD == 8 && docSecondHandPurch.DirSecondHandStatusID == 9)
+            else if (docSecondHandPurch.DirSecondHandStatusID_789 == 8 && docSecondHandPurch.DirSecondHandStatusID == 2)
+            {
+                #region Вернули с Разбора
+
+                /*
+
+                #region  Документ БУ.Приёмка (Мастерская)
+
+                //Т.к. Мы и приходуем товар, то:
+                #region 1. Проверка: Было ли списание с партий *** *** *** *** *** *** *** *** *** ***
+
+                //Получаем DocPurch из БД, потому, что могли изменить у Клиента
+                Models.Sklad.Doc.DocSecondHandPurch _docSecondHandPurch = db.DocSecondHandPurches.Find(DocSecondHandPurchID);
+                int? iDocSecondHandPurch_DocID = _docSecondHandPurch.DocID;
+
+                Classes.Function.WriteOffGoodsWithParty writeOffGoodsWithParty = new Classes.Function.WriteOffGoodsWithParty();
+                bool bWriteOffGoodsWithParty = await Task.Run(() => writeOffGoodsWithParty.Exist(db, iDocSecondHandPurch_DocID));
+
+                #endregion
+
+                #region 2. RemPartyMinuses и RemParties *** *** *** *** *** *** *** *** *** ***
+
+                //Удаление записей в таблицах: RemPartyMinuses
+                SQLiteParameter parDocID = new SQLiteParameter("@DocID", System.Data.DbType.Int32) { Value = iDocSecondHandPurch_DocID };
+                await db.Database.ExecuteSqlCommandAsync("DELETE FROM RemParties WHERE DocID=@DocID; DELETE FROM RemPartyMinuses WHERE DocID=@DocID;", parDocID);
+                //DELETE FROM RemPartyMinuses WHERE DocID=@DocID;
+
+                //Обновление записей: RemPartyMinuses
+                //SQLiteParameter parReserve = new SQLiteParameter("@Reserve", System.Data.DbType.Boolean) { Value = true };
+                //await db.Database.ExecuteSqlCommandAsync("UPDATE RemPartyMinuses SET Reserve=@Reserve WHERE DocID=@DocID;", parDocID, parReserve);
+
+                #endregion
+
+                //Doc.Held = false
+                #region 3. Doc *** *** *** *** *** *** *** *** *** ***
+
+                Models.Sklad.Doc.Doc doc3 = db.Docs.Find(iDocSecondHandPurch_DocID);
+                doc3.Held = false;
+
+                Docs.Docs docs3 = new Docs.Docs(db, dbRead, doc3, EntityState.Modified);
+                await Task.Run(() => docs3.Save()); //docs.Save();
+
+                #endregion
+
+                #endregion
+
+
+                #region Разбор
+
+                //Получаем все документы (1 аппарат - 1 документ) Разборки
+                //всего один аппарат, просто код скопирован с контраллера "DocSecondHandInventoriesController"
+                var queryDocSecondHandRazbor = await
+                    (
+                        from x in db.DocSecondHandRazbors
+                        where x.doc.DocIDBase == iDocSecondHandPurch_DocID //docSecondHandInventory.DocID
+                        select x
+                    ).ToListAsync();
+
+
+                #region Проверки
+
+                //!!! Важно: DocSecondHandRazbors !!!
+                //Проверки:
+                //1. DocSecondHandRazborTabs: если есть хоть одна запись - выдать сообщение об этом
+                //2. Лог LogSecondHandRazbors.DocSecondHandRazborID = DocSecondHandRazborID
+                //3. Если статус DocSecondHandRazbors.DirSecondHandStatusID != 2
+
+                //всего один аппарат, просто код скопирован с контраллера "DocSecondHandInventoriesController"
+                for (int i = 0; i < queryDocSecondHandRazbor.Count(); i++)
+                {
+                    int? DocSecondHandRazborID = queryDocSecondHandRazbor[i].DocSecondHandRazborID;
+
+                    //1. DocSecondHandRazborTabs: если есть хоть одна запись - выдать сообщение об этом
+                    var queryDocSecondHandRazborTabs = await db.DocSecondHandRazborTabs.Where(x => x.docSecondHandRazbor.DocSecondHandRazborID == DocSecondHandRazborID).CountAsync();
+                    if (queryDocSecondHandRazborTabs > 0)
+                    {
+                        throw new System.InvalidOperationException(
+                                    Classes.Language.Sklad.Language.msg130 + DocSecondHandRazborID + "." + queryDocSecondHandRazbor[i].dirServiceNomen.DirServiceNomenName
+                                );
+                    }
+
+                    //2. Лог LogSecondHandRazbors.DocSecondHandRazborID = DocSecondHandRazborID
+
+                    //3. Если статус DocSecondHandRazbors.DirSecondHandStatusID != 2
+                    if (queryDocSecondHandRazbor[i].DirSecondHandStatusID != 2)
+                    {
+                        throw new System.InvalidOperationException(
+                                    Classes.Language.Sklad.Language.msg132 + DocSecondHandRazborID + "." + queryDocSecondHandRazbor[i].dirServiceNomen.DirServiceNomenName
+                                );
+                    }
+                }
+
+                #endregion
+
+
+                #region Сохранение (вернее удаление)
+
+                //Удаление всех аппаратов 
+                //всего один аппарат, просто код скопирован с контраллера "DocSecondHandInventoriesController"
+                for (int i = 0; i < queryDocSecondHandRazbor.Count(); i++)
+                {
+                    int? DocSecondHandRazborID = queryDocSecondHandRazbor[i].DocSecondHandRazborID;
+
+                    //1. Rem2Parties
+                    int? DocID = queryDocSecondHandRazbor[i].DocID;
+                    SQLiteParameter paDocID = new SQLiteParameter("@DocID", System.Data.DbType.Int32) { Value = DocID };
+                    await db.Database.ExecuteSqlCommandAsync("DELETE FROM Rem2Parties WHERE DocID=@DocID;", paDocID);
+
+                    //2.1. Удаляем все записи с лога
+                    SQLiteParameter paDocSecondHandRazborID = new SQLiteParameter("@DocSecondHandRazborID", System.Data.DbType.Int32) { Value = DocSecondHandRazborID };
+                    await db.Database.ExecuteSqlCommandAsync("DELETE FROM LogSecondHandRazbors WHERE DocSecondHandRazborID=@DocSecondHandRazborID;", paDocSecondHandRazborID);
+                    //2.2. DocSecondHandRazbors
+                    //SQLiteParameter paDocSecondHandRazborID = new SQLiteParameter("@DocSecondHandRazborID", System.Data.DbType.Int32) { Value = DocSecondHandRazborID };
+                    await db.Database.ExecuteSqlCommandAsync("DELETE FROM DocSecondHandRazbors WHERE DocSecondHandRazborID=@DocSecondHandRazborID;", paDocSecondHandRazborID);
+
+                    //3. Docs
+                    await db.Database.ExecuteSqlCommandAsync("DELETE FROM Docs WHERE DocID=@DocID;", paDocID);
+                }
+
+                #endregion
+
+
+
+                #endregion
+
+                */
+
+                #endregion
+            }
+
+
+            #endregion
+
+            #endregion

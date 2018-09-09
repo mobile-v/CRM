@@ -1,0 +1,94 @@
+﻿                            DocID = g.Key.DocID,
+                            DocDate = g.Key.DocDate.ToString(),
+                            Base = g.Key.Base,
+                            Held = g.Key.Held,
+                            Del = g.Key.Del,
+                            Description = g.Key.Description,
+                            IsImport = g.Key.IsImport,
+                            DirVatValue = g.Key.DirVatValue,
+
+                            DocServicePurchID = g.Key.DocServicePurchID,
+
+                            DirServiceNomenID = g.Key.DirServiceNomenID,
+                            DirServiceNomenNameLittle = g.Key.DirServiceNomenNameLittle,
+                            DirServiceNomenName = g.Key.DirServiceNomenName,
+
+                            //DirContractorName = g.Key.DirContractorName,
+                            DirContractorIDOrg = g.Key.DirContractorIDOrg,
+                            DirContractorNameOrg = g.Key.DirContractorNameOrg,
+
+                            DirWarehouseID = g.Key.DirWarehouseID,
+                            DirWarehouseName = g.Key.DirWarehouseName,
+
+                            DirServiceStatusID = g.Key.DirServiceStatusID,
+                            SerialNumber = g.Key.SerialNumber,
+                            TypeRepair = g.Key.TypeRepair,
+                            ComponentDevice = g.Key.ComponentDevice,
+
+                            ComponentBattery = g.Key.ComponentBattery,
+                            ComponentBatterySerial = g.Key.ComponentBatterySerial,
+                            ComponentBackCover = g.Key.ComponentBackCover,
+                            ComponentPass = g.Key.ComponentPass,
+                            ComponentPasText = g.Key.ComponentPasText,
+                            ComponentOtherText = g.Key.ComponentOtherText,
+                            ProblemClientWords = g.Key.ProblemClientWords,
+                            Note = g.Key.Note,
+                            DirServiceContractorName = g.Key.DirServiceContractorName,
+                            DirServiceContractorRegular = g.Key.DirServiceContractorRegular,
+                            DirServiceContractorID = g.Key.DirServiceContractorID,
+                            DirServiceContractorAddress = g.Key.DirServiceContractorAddress,
+                            DirServiceContractorPhone = g.Key.DirServiceContractorPhone,
+                            DirServiceContractorEmail = g.Key.DirServiceContractorEmail,
+
+                            PriceVAT = g.Key.PriceVAT,
+                            //PriceCurrency = g.Key.PriceCurrency,
+
+                            DirCurrencyID = g.Key.DirCurrencyID,
+                            DirCurrencyRate = g.Key.DirCurrencyRate,
+                            DirCurrencyMultiplicity = g.Key.DirCurrencyMultiplicity,
+                            DirCurrencyName = g.Key.DirCurrencyName + " (" + g.Key.DirCurrencyRate + ", " + g.Key.DirCurrencyMultiplicity + ")",
+
+                            DateDone = g.Key.DateDone,
+                            UrgentRepairs = g.Key.UrgentRepairs,
+                            Prepayment = g.Key.Prepayment,
+                            PrepaymentSum = g.Key.PrepaymentSum == null ? 0 : g.Key.PrepaymentSum,
+
+                            //Оплата
+                            Payment = g.Key.Payment,
+                            //Мастер
+                            DirEmployeeIDMaster = g.Key.DirEmployeeIDMaster,
+                            DirEmployeeNameMaster = g.Key.DirEmployeeNameMaster,
+
+
+                            //1. Подсчет табличной части Работы "SumDocServicePurch1Tabs"
+                            SumDocServicePurch1Tabs =
+                            g.Sum(x => x.docServicePurch1Tabs.PriceCurrency) == null ? 0 : Math.Round(g.Sum(x => x.docServicePurch1Tabs.PriceCurrency), sysSetting.FractionalPartInSum),
+
+                            //2. Подсчет табличной части Работы "SumDocServicePurch2Tabs"
+                            SumDocServicePurch2Tabs =
+                            g.Sum(x => x.docServicePurch2Tabs.PriceCurrency) == null ? 0 : Math.Round(g.Sum(x => x.docServicePurch2Tabs.PriceCurrency), sysSetting.FractionalPartInSum),
+
+                            //3. Сумма 1+2 "SumTotal"
+                            SumTotal =
+                             Math.Round(
+                            (g.Sum(x => x.docServicePurch1Tabs.PriceCurrency) == null ? 0 : g.Sum(x => x.docServicePurch1Tabs.PriceCurrency)) +
+                            (g.Sum(x => x.docServicePurch2Tabs.PriceCurrency) == null ? 0 : g.Sum(x => x.docServicePurch2Tabs.PriceCurrency))
+                            , sysSetting.FractionalPartInSum),
+
+                            //4. Константа "PrepaymentSum"
+                            //...
+
+                            //5. 3 - 4 "SumTotal2"
+                            SumTotal2a =
+                             Math.Round(
+                            (g.Sum(x => x.docServicePurch1Tabs.PriceCurrency) == null ? 0 : g.Sum(x => x.docServicePurch1Tabs.PriceCurrency)) +
+                            (g.Sum(x => x.docServicePurch2Tabs.PriceCurrency) == null ? 0 : g.Sum(x => x.docServicePurch2Tabs.PriceCurrency)) -
+                            g.Key.PrepaymentSum
+                            , sysSetting.FractionalPartInSum),
+
+                            ServiceTypeRepair = g.Key.ServiceTypeRepair,
+
+                            //К-во раз Клиент обращался в сервис
+                            QuantityOk = g.Key.QuantityOk,
+                            QuantityFail = g.Key.QuantityFail,
+                            QuantityCount = g.Key.QuantityCount

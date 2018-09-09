@@ -1,0 +1,28 @@
+﻿				" CASE " +
+                " WHEN dirServiceJobNomensSubGroup.DirServiceJobNomenID IS NULL THEN " +
+
+                "      CASE WHEN dirServiceJobNomensGroup.DirServiceJobNomenID IS NULL THEN " +
+
+                "           CASE WHEN DirServiceJobNomens.DirServiceJobNomenID IS NULL THEN " +
+
+                "                CASE WHEN DirServiceJobNomens.DirServiceJobNomenID IS NULL THEN[DocServicePurch1Tabs].[DirServiceJobNomenName]  || ' (' || [DocServicePurch1Tabs].[DiagnosticRresults] || ') ' " +
+                "                END " +
+
+                "           ELSE " +
+                "             CASE WHEN[DocServicePurch1Tabs].[DiagnosticRresults] IS '' THEN DirServiceJobNomens.DirServiceJobNomenName " +
+                "             ELSE DirServiceJobNomens.DirServiceJobNomenName  || ' (' || [DocServicePurch1Tabs].[DiagnosticRresults] || ') ' " +
+                "             END " +
+                "           END " +
+
+                "       ELSE " +
+                "           CASE WHEN[DocServicePurch1Tabs].[DiagnosticRresults] IS '' THEN dirServiceJobNomensGroup.DirServiceJobNomenName || ' / ' || DirServiceJobNomens.DirServiceJobNomenName " +
+                "           ELSE dirServiceJobNomensGroup.DirServiceJobNomenName || ' / ' || DirServiceJobNomens.DirServiceJobNomenName  || ' (' || [DocServicePurch1Tabs].[DiagnosticRresults] || ') ' " +
+                "           END " +
+                "       END " +
+
+                "   ELSE " +
+                "       CASE WHEN[DocServicePurch1Tabs].[DiagnosticRresults] IS '' THEN dirServiceJobNomensSubGroup.DirServiceJobNomenName || ' / ' || dirServiceJobNomensGroup.DirServiceJobNomenName || ' / ' || DirServiceJobNomens.DirServiceJobNomenName " +
+                "       ELSE dirServiceJobNomensSubGroup.DirServiceJobNomenName || ' / ' || dirServiceJobNomensGroup.DirServiceJobNomenName || ' / ' || DirServiceJobNomens.DirServiceJobNomenName  || ' (' || [DocServicePurch1Tabs].[DiagnosticRresults] || ') ' " +
+                "   END " +
+                "END  " +
+                "AS [DirNomenName] " +

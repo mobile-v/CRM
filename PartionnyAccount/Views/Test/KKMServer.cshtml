@@ -1,0 +1,213 @@
+﻿@{
+    Layout = "~/Views/_Shared/_LayoutTest.cshtml";
+}
+
+
+<div style="margin: 20px;">
+    <p>Ответ сервера:</p>
+    <pre id="Slip" style="white-space:pre;"></pre>
+    <p id="Responce" style="white-space:pre;"></p>
+</div>
+
+
+
+
+<div id="events" class="container text-center">
+    <h1>KKMServer</h1>
+
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <div class="row">
+                <!-- Ряд 1 -->
+                <div class="col-sm-12">
+                    <!-- Событие 1 -->
+
+                    <table class="table table-hover wow fadeInUp" style="visibility: hidden; -webkit-animation-name: none;" align="center">
+
+
+                        <tr>
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="RegisterCheck" id="RegisterCheck" onclick="RegisterCheck(Device, 0, false)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Печать чека продажи</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="RegisterCorrectionCheck" id="RegisterCorrectionCheck" onclick="RegisterCorrectionCheck(Device, 2)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Печать чека коррекции</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="PrintSlip" id="PrintSlip" onclick="PrintSlip(Device, false)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Печать слип-чека</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="PaymentCash" id="PaymentCash" onclick="PaymentCash(Device)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Инкассация денег из кассы</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="DepositingCash" id="DepositingCash" onclick="DepositingCash(Device)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Внесение денег в кассу</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="OpenCashDrawer" id="OpenCashDrawer" onclick="OpenCashDrawer(Device)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Открытие денежного ящика</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="OpenShift" id="OpenShift" onclick="OpenShift(Device)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Открытие смены</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="CloseShift" id="CloseShift" onclick="CloseShift(Device)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Закрытие смены</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="XReport" id="XReport" onclick="XReport(Device)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Печать Х отчета</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="OfdReport" id="OfdReport" onclick="OfdReport(Device)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Печать состояния расчетов и связи с ОФД</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="GetDataCheck" id="GetDataCheck" onclick="GetDataCheck(Device, 0, 1)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Получить данные последнего чека из ФН.</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="GetDataKKT" id="GetDataKKT" onclick="GetDataKKT(Device)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Получить текущее состояние ККТ.</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="1">
+                                <center>
+                                    <div class="btn-box-margin-10">
+
+                                        <button type="submit" name="List" id="List" onclick="List(0)" class="btn wow" style="display: inline-block; visibility: hidden; -webkit-animation-name: none;">
+                                            <span>Получение списка ККМ</span>
+                                        </button>
+
+                                    </div>
+                                </center>
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+
+                    <span style="font-size:14px; color: black;"> @(new HtmlString((string)ViewData["MsgBlack"])) </span>
+                    <span style="font-size:14px; color: red;"> @ViewData["MsgRed"] </span>
+
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end col -->
+    </div><!-- end row -->
+
+</div><!-- end container -->

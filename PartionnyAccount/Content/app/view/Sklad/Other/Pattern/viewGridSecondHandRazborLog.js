@@ -1,0 +1,95 @@
+﻿Ext.define("PartionnyAccount.view.Sklad/Other/Pattern/viewGridSecondHandRazborLog", {
+    extend: "Ext.grid.Panel",
+    alias: "widget.viewGridSecondHandRazborLog",
+
+    region: "center",
+    flex: 1,
+    loadMask: true,
+    //autoScroll: true,
+    //touchScroll: true,
+    //itemId: "grid",
+    UI_DateFormatStr: false,
+
+    conf: {},
+
+    initComponent: function () {
+        this.id = this.conf.id;
+        this.UO_id = this.conf.UO_id;
+        this.UO_idMain = this.conf.UO_idMain;
+        this.UO_idCall = this.conf.UO_idCall;
+        this.UO_View = this.conf.UO_View;
+
+        //this.itemId = this.conf.itemId;
+        //this.store = this.conf.store;
+
+        this.columns = [
+            {
+                dataIndex: "Field1", flex: 1,
+                renderer: function (value, metaData, record, rowIndex, colIndex, view) {
+                    metaData.style = "white-space: normal;";
+                    return value;
+                }
+            },
+        ],
+
+
+        this.callParent(arguments);
+    },
+
+
+
+    viewConfig: {
+        getRowClass: function (record, index) {
+
+
+            for (var i = 0; i < record.store.model.fields.length; i++) {
+
+
+                //1. Если поле типа "Дата": "yyyy-MM-dd HH:mm:ss" => "yyyy-MM-dd"
+                if (record.store.model.fields[i].type == "date") {
+                    //Если есть дата, может быть пустое значение
+                    if (record.data[record.store.model.fields[i].name] != null) {
+
+                        if (record.data[record.store.model.fields[i].name].length != 10) {
+                            //Ext.Date.format
+                            record.data[record.store.model.fields[i].name] = Ext.Date.format(new Date(record.data[record.store.model.fields[i].name]), "Y-m-d H:i:sO");
+                        }
+                        else {
+                            //Рабочий метод, но нет смысла использовать
+                            //Ext.Date.parse and Ext.Date.format
+                            //record.data[record.store.model.fields[i].name] = Ext.Date.parse(record.data[record.store.model.fields[i].name], DateFormatStr);
+                            //record.data[record.store.model.fields[i].name] = Ext.Date.format(new Date(record.data[record.store.model.fields[i].name]), DateFormatStr);
+                        }
+                    }
+                }
+
+
+                
+                //2.  === Формируем поле "Field1"  ===  ===  ===  ===  === 
+
+                if (record.data["DirSecondHandLogTypeID"] == 9 && i == 0) { record.data["Field1"] += "<b style='color: red;'> *** "; }
+
+                var FN = record.store.model.fields[i].name;
+                if (FN == "DirSecondHandLogTypeName" || FN == "DirSecondHandStatusName" || FN == "Msg" || FN == "DirEmployeeName") {
+                    if (record.data[record.store.model.fields[i].name] != null) {
+                        record.data["Field1"] += record.data[record.store.model.fields[i].name];
+
+                        if (FN == "DirEmployeeName" || (FN == "Msg" && record.data["Msg"] == "")) { }
+                        else record.data["Field1"] += " - ";
+                    }
+                }
+                else if (FN == "LogSecondHandRazborDate") {
+                    record.data["Field1"] += Ext.Date.format(new Date(record.data[record.store.model.fields[i].name]), "y-m-d H:i") + " - ";
+                }
+
+                if (record.data["DirSecondHandLogTypeID"] == 9 && i == record.store.model.fields.length - 1) { record.data["Field1"] += " *** </b>"; }
+
+            }
+
+
+        }, //getRowClass
+
+        stripeRows: true,
+    }
+
+});

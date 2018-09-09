@@ -1,0 +1,94 @@
+﻿@model PartionnyAccount.Models.Login.Dir.DirCustomerLogin
+
+@{
+    Layout = "~/Views/_Shared/_LayoutLogin.cshtml";
+}
+
+<!-- Form Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+    <h1>Вход</h1>
+    <span>Сервис для ведения торгового, складского и сервисного учета</span>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+
+    <!--
+    <div class="toggle">
+        <i class="fa fa-times fa-pencil"></i>
+        <div class="tooltip">Регистрация</div>
+    </div>
+    -->
+
+
+    <div class="toggle">
+        <i class="fa fa-times fa-pencil"></i>
+        <div class="tooltip">Расширенные</div>
+    </div>
+
+
+
+    <div class="form">
+        <h2>Учетные данные</h2>
+
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationMessageFor(model => model.Login)
+            @Html.EditorFor(model => model.Login, new { htmlAttributes = new { type = "text", placeholder = "Login@MyCompany", title = "Логин в справочнике Сотрудники, собачка @ и Наименование Вашей компании при регистрации" } })
+
+
+            <input id="PswdTemp" name="PswdTemp" type="password" oninput = "fn_password_onKeyPress();" />
+            @Html.ValidationMessageFor(model => model.Pswd)
+            @Html.HiddenFor(model => model.Pswd, new { htmlAttributes = new { type = "text", placeholder = "Password", title = "Пароль в справонике Сотрудники" } })
+
+            <button>Вход</button>
+        }
+        <br />
+        <span style="color: red">@ViewData["Msg"]</span>
+    </div>
+
+    
+
+    <div class="form">
+        <h2>Учетные данные</h2>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.DropDownListFor(model => model.DirInterfaceID, new[] {
+                                                new SelectListItem { Text = "Tabs", Value = "2" },
+                                                new SelectListItem { Text = "Windows", Value = "1" },
+                                                new SelectListItem { Text = "Panels", Value = "3" }
+                                                }, new { type = "text", title = "Интерфейс", onchange = "fn_Change_DirThemeID(this);" })
+            @Html.DropDownListFor(model => model.DirThemeID, new[] {
+                                                new SelectListItem { Text = "Gray", Value = "1" },
+                                                new SelectListItem { Text = "Blue", Value = "2" },
+                                                new SelectListItem { Text = "Blue Touch", Value = "3" },
+                                                new SelectListItem { Text = "Triton", Value = "4" },
+                                                }, new { type = "text", title = "Тема", onchange = "fn_Change_DirThemeID(this);" })
+
+            @Html.DropDownListFor(model => model.DirLanguageID, new[] {
+                                                new SelectListItem { Text = "Русский", Value = "1" },
+                                                new SelectListItem { Text = "Українска", Value = "2" },
+                                                new SelectListItem { Text = "English", Value = "4" },
+                                                }, new { type = "text", title = "Язык" })
+
+            @Html.ValidationMessageFor(model => model.Login)
+            @Html.EditorFor(model => model.Login, new { htmlAttributes = new { type = "text", placeholder = "Login@MyCompany", title = "Логин в справочнике Сотрудники, собачка @ и Наименование Вашей компании при регистрации" } })
+
+            <input id="PswdTemp2" name="PswdTemp2" type="password" oninput="fn_password_onKeyPress2();" />
+            @Html.ValidationMessageFor(model => model.Pswd)
+            @Html.HiddenFor(model => model.Pswd2, new { htmlAttributes = new { type = "text", placeholder = "Password", title = "Пароль в справонике Сотрудники" } })
+
+            <button>Вход</button>
+        }
+        <br />
+        <span style="color: red">@ViewData["Msg"]</span>
+    </div>
+
+
+    <div class="cta">
+        <a href="account/registration/">Регистрация?</a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="account/passremind/">Забыли пароль?</a>
+    </div>
+
+
+</div>

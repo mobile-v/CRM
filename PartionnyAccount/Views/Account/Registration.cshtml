@@ -1,0 +1,87 @@
+﻿@model PartionnyAccount.Models.Login.Dir.DirCustomerReg
+
+@{
+    Layout = "~/Views/_Shared/_LayoutLogin.cshtml";
+}
+
+<!-- Form Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+    <h1>Регистрация</h1>
+    <span>Сервис для ведения торгового, складского и сервисного учета</span>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+
+    <!--
+    <div class="toggle">
+        <i class="fa fa-times fa-pencil"></i>
+        <div class="tooltip">Регистрация</div>
+    </div>
+    -->
+
+    
+    <div class="toggle1">
+        <!--
+        <i class="fa fa-times fa-pencil"></i>
+        <div class="tooltip">Расширенные</div>
+    -->    
+    </div>
+    
+
+    <div class="form">
+        <h2>Учетные данные</h2>
+
+        @using (Html.BeginForm("Registration", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            @Html.Hidden("Refer")
+
+            @Html.ValidationMessageFor(model => model.Email)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { type = "text", placeholder = "email@mail.com", title = "Введите Ваш основной E-Mail адрес" } })
+
+            @Html.ValidationMessageFor(model => model.Login)
+            @Html.EditorFor(model => model.Login, new { htmlAttributes = new { type = "text", placeholder = "MyCompany", title = "Желательно латинский буквы, цифры и без пробелов" } })
+
+            @Html.ValidationMessageFor(model => model.DirCountryID)
+            @Html.DropDownListFor(model => model.DirCountryID, new[] {
+                                        new SelectListItem { Text = "Российская Федерация", Value = "1" },
+                                        new SelectListItem { Text = "Україна", Value = "2" },
+                                        new SelectListItem { Text = "USA", Value = "14" },
+                                        new SelectListItem { Text = "Česká republika", Value = "12" },
+                                        new SelectListItem { Text = "Рэспубліка Беларусь", Value = "3" },
+                                        new SelectListItem { Text = "Lietuva", Value = "4" },
+                                        new SelectListItem { Text = "Latvija", Value = "5" },
+                                        new SelectListItem { Text = "Eesti", Value = "6" },
+                                        new SelectListItem { Text = "Republica Moldova", Value = "7" },
+                                        new SelectListItem { Text = "საქართველოს", Value = "8" },
+                                        new SelectListItem { Text = "Հայաստանի Հանրապետություն", Value = "9" },
+                                        new SelectListItem { Text = "Azərbaycan", Value = "10" },
+                                        new SelectListItem { Text = "Другая", Value = "11" }
+                                        }, "Выберите страну", new { type = "text", title = "Выберите страну в которой будете вести бизнес" })
+
+            @Html.ValidationMessageFor(model => model.DirLanguageID)
+            @Html.DropDownListFor(model => model.DirLanguageID, new[] {
+                                        new SelectListItem { Text = "Русский", Value = "1" },
+                                        new SelectListItem { Text = "Українска", Value = "2" },
+                                        new SelectListItem { Text = "English", Value = "4" },
+                                        new SelectListItem { Text = "Český", Value = "13" },
+                                        }, new { type = "text", title = "Язык" })
+
+            @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { type = "text", placeholder = "Ваш телефон (мобильный, рабочий, домашний, ...)", title = "Введите Ваш реальный телефонный номер" } })
+
+            @Html.EditorFor(model => model.FIO, new { htmlAttributes = new { type = "text", placeholder = "Фамилия Имя Отчество", title = "Введите Ваше реальное Имя" } })
+
+
+            <button>Регистрация</button>
+
+        }
+        <br />
+        <span style="color: red; font-weight: bold; font-size: 12px">@(new HtmlString((string)ViewData["Msg"]))</span>
+    </div>
+
+
+    <div class="cta"><a href="account/login/">Вход</a></div>
+
+
+</div>

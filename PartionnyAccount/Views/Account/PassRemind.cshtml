@@ -1,0 +1,51 @@
+﻿@model PartionnyAccount.Models.Login.Dir.DirCustomerReg
+
+@{
+    Layout = "~/Views/_Shared/_LayoutLogin.cshtml";
+}
+
+<!-- Form Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+    <h1>Напомнить Логин/Пароль</h1>
+    <span>Сервис для ведения торгового, складского и сервисного учета</span>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+
+    <!--
+    <div class="toggle">
+        <i class="fa fa-times fa-pencil"></i>
+        <div class="tooltip">Регистрация</div>
+    </div>
+    -->
+
+
+    <div class="toggle1">
+        <!--
+            <i class="fa fa-times fa-pencil"></i>
+            <div class="tooltip">Расширенные</div>
+        -->
+    </div>
+
+
+    <div class="form">
+        <h2>Введите EMail адрес</h2>
+
+        @using (Html.BeginForm("PassRemind", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationMessageFor(model => model.Email)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { type = "text", placeholder = "email@mail.com", title = "Введите Ваш основной E-Mail адрес" } })
+
+
+            <button>Подтвердить</button>
+        }
+        <br />
+        <span style="color: red; font-weight: bold; font-size: 12px">@(new HtmlString((string)ViewData["Msg"]))</span>
+    </div>
+
+
+    <div class="cta"><a href="account/login/">Вход</a></div>
+
+
+</div>
